@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/08 10:47:41 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/08 10:51:50 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int	main(void)
 {
 	t_data data;
 
+	data.maze.floor.g = 50;
 	return (0);
 }
