@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:44:54 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/08 10:45:32 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/08 10:54:00 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct s_maze {
 	t_color	floor;
 	t_color	ceiling;
 	char	**map;
-
 }				t_maze;
 
 #endif
