@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/08 11:00:40 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/08 15:47:39 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@
 typedef struct s_data {
 	t_maze	maze;
 	int		file;
+	int		x_length;
+	int		y_length;
 }				t_data;
 /*
 ** -----------------------------------------------------------------------------
 ** Function prototypes
 */
+int	parse_map(t_data *data, char *file);
 
 #endif
