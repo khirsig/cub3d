@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/08 10:47:41 by khirsig          ###   ########.fr       */
+/*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
+/*   Updated: 2021/12/08 10:44:42 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.h"
+#ifndef COLOR_H
+# define COLOR_H
 
-int	main(void)
-{
-	t_data data;
+typedef struct s_color {
+	int	r;
+	int	g;
+	int	b;
+}				t_color;
 
-	return (0);
-}
+#endif
