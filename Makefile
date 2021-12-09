@@ -5,7 +5,7 @@ NAME = cub3D
 LIBPATH = ./libs/libft/libft.a
 MLXPATH = ./libs/mlx/libmlx.a
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra 
 LFLAGS = $(MLXPATH) -framework OpenGL -framework AppKit $(LIBPATH)
 
 OBJECTS = *.o
