@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/08 18:19:45 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:20:18 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,28 @@ void	check_color_str(char *str)
 	}
 }
 
+
 void	parse_texture(char *str, int i, t_data *data)
 {
 	if (str[i] == 'N' && str[i + 1] == 'O')
-		data->maze.north_texture = get_path(&str[i + 2]);
+		data->maze.north_texture = &str[i + 2];
 	else if (str[i] == 'S' && str[i + 1] == 'O')
-		data->maze.north_texture = get_path();
+		data->maze.north_texture = &str[i + 2];
 	else if (str[i] == 'W' && str[i + 1] == 'E')
-		data->maze.north_texture = get_path();
+		data->maze.north_texture = &str[i + 2];
 	else if (str[i] == 'E' && str[i + 1] == 'A')
-		data->maze.north_texture = get_path();
+		data->maze.north_texture = &str[i + 2];
+	else
+		print_error();
 }
 
 void	parse_color(char *str, int i, t_data *data)
 {
-	int		color_code;
 	char	c;
 
 	c = str[i];
 	if (str[i + 1] != ' ')
-		print_error(void);
+		print_error();
 	check_color_str(&str[i + 1]);
 	if (str[i] == 'F')
 	{
@@ -102,21 +104,21 @@ int	check_next_line(char *str, t_data *data)
 	i = 0;
 	while (str[i] == ' ')
 		i++;
-	if (str[i] == 'N' && str[i] == 'S' &&  str[i] == 'W' && str[i] == 'E')
+	if (str[i] == 'N' || str[i] == 'S' ||  str[i] == 'W' || str[i] == 'E')
 	{
 		parse_texture(str, i, data);
 		return (1);
 	}
-	if else (str[i] == 'F' && str[i] == 'C')
+	else if (str[i] == 'F' || str[i] == 'C')
 	{
 		parse_color(str, i, data);
 		return (2);
 	}
-	if else (str[i] == '\n')
+	else if (str[i] == '\n')
 		return (3);
-	else
-		return (0);
+	return (0);
 }
+
 
 int	parse_part_1(int fd, t_data *data)
 {
@@ -131,11 +133,20 @@ int	parse_part_1(int fd, t_data *data)
 	count = 0;
 	while (1)
 	{
+		printf("Hello lets start 1\n");
 		str = get_next_line(fd);
+		printf("Hello lets start 2\n");
 		if (str == NULL || count == 6)
+		{
+			if (count < 6)
+				print_error();
 			break ;
-		i = check_next_line(str, data)
-		else if (i == 0)
+		}
+		printf("Hello lets start 3\n");
+		i = check_next_line(str, data);
+		printf("Hello lets start 4\n");
+		printf("This is i: %i \n", i);
+		if (i == 0)
 			print_error();
 		else if (i == 1 || i == 2)
 			count++;

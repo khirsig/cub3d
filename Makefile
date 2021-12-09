@@ -10,7 +10,7 @@ LFLAGS = $(MLXPATH) -framework OpenGL -framework AppKit $(LIBPATH)
 
 OBJECTS = *.o
 
-SRC =	main.c
+SRC =	main.c parse_color.c
 
 all: $(NAME)
 
