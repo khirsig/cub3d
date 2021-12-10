@@ -16,6 +16,7 @@ SRC =	src/main.c							\
 		src/parse_map/parse_map.c			\
 		src/parse_map/map_length.c			\
 		src/parse_color/parse_color.c		\
+		src/parse_color/parse_texture.c		\
 
 all: $(NAME)
 
