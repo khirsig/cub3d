@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/09 15:20:18 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/10 13:21:46 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	parse_texture(char *str, int i, t_data *data)
 	if (str[i] == 'N' && str[i + 1] == 'O')
 		data->maze.north_texture = &str[i + 2];
 	else if (str[i] == 'S' && str[i + 1] == 'O')
-		data->maze.north_texture = &str[i + 2];
+		data->maze.south_texture = &str[i + 2];
 	else if (str[i] == 'W' && str[i + 1] == 'E')
-		data->maze.north_texture = &str[i + 2];
+		data->maze.west_texture = &str[i + 2];
 	else if (str[i] == 'E' && str[i + 1] == 'A')
-		data->maze.north_texture = &str[i + 2];
+		data->maze.east_texture = &str[i + 2];
 	else
 		print_error();
 }
@@ -80,20 +80,20 @@ void	parse_color(char *str, int i, t_data *data)
 		data->maze.floor.r = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.floor.r = ft_atoi(&str[i + 1]);
+		data->maze.floor.b = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.floor.r = ft_atoi(&str[i + 1]);
+		data->maze.floor.g = ft_atoi(&str[i + 1]);
 	}
 	else
 	{
 		data->maze.ceiling.r = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.ceiling.r = ft_atoi(&str[i + 1]);
+		data->maze.ceiling.b = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.ceiling.r = ft_atoi(&str[i + 1]);
+		data->maze.ceiling.g = ft_atoi(&str[i + 1]);
 	}
 }
 
@@ -133,19 +133,14 @@ int	parse_part_1(int fd, t_data *data)
 	count = 0;
 	while (1)
 	{
-		printf("Hello lets start 1\n");
 		str = get_next_line(fd);
-		printf("Hello lets start 2\n");
 		if (str == NULL || count == 6)
 		{
 			if (count < 6)
 				print_error();
 			break ;
 		}
-		printf("Hello lets start 3\n");
 		i = check_next_line(str, data);
-		printf("Hello lets start 4\n");
-		printf("This is i: %i \n", i);
 		if (i == 0)
 			print_error();
 		else if (i == 1 || i == 2)
