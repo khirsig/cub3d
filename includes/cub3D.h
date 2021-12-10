@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/08 15:47:39 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/10 10:10:09 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 ** -----------------------------------------------------------------------------
 ** Includes
 */
-# include "libs/libft/libft.h"
-# include "libs/mlx/mlx.h"
+# include "../libs/libft/libft.h"
+# include "../libs/mlx/mlx.h"
 # include <stdio.h>
 # include "maze.h"
 /*
@@ -36,5 +36,6 @@ typedef struct s_data {
 ** Function prototypes
 */
 int	parse_map(t_data *data, char *file);
+int	error_map(t_data *data, char **map);
 
 #endif

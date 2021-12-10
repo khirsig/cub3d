@@ -8,28 +8,32 @@ MLXPATH = ./libs/mlx/libmlx.a
 CFLAGS = -Wall -Werror -Wextra
 LFLAGS = $(MLXPATH) -framework OpenGL -framework AppKit $(LIBPATH)
 
-OBJECTS = *.o
+OBJDIR = ./objs/
+OBJECTS = $(OBJDIR)/*.o
 
-SRC =	main.c	parse_map.c
+SRC =	src/main.c		src/parse_map/error_map.c		src/parse_map/parse_map.c
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	@make --directory=./libs/libft
 	@make --directory=./libs/mlx
-	$(CC) $(SRC) $(CFLAGS) $(LFLAGS) -o $(NAME)
+	$(CC) $(OBJECTS) $(CFLAGS) $(LFLAGS) -o $(NAME) $(LIBPATH)
 
-$(OBJECTS):
+$(OBJECTS): $(SRC)
 	$(CC) -c $(CFLAGS) $(SRC)
+	@rm -rf ./objs; mkdir ./objs
+	@mv *.o $(OBJDIR)
 
 clean:
 	@make clean --directory=./libs/libft
 	@make clean --directory=./libs/mlx
 	rm -f $(OBJECTS)
+	rm -rf ./objs
 
 fclean: clean
 	@make fclean --directory=./libs/libft
 	rm -f $(NAME)
 
 re: fclean $(NAME)
-	make re --directory=./libft
+	make re --directory=./libs/libft
