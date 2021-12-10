@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 13:45:32 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/10 18:00:14 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	map_y_length(char *file);
 /*
 ** Parse color
 */
-int	parse_part_1(int fd, t_data *data);
+int		parse_part_1(int fd, t_data *data);
+void	parse_color(char *str, int i, t_data *data);
 
 #endif
