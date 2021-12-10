@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 10:10:09 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/10 10:32:30 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ typedef struct s_data {
 */
 int	parse_map(t_data *data, char *file);
 int	error_map(t_data *data, char **map);
+int	map_x_length(char *file);
+int	map_y_length(char *file);
 
 #endif

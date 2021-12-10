@@ -11,7 +11,10 @@ LFLAGS = $(MLXPATH) -framework OpenGL -framework AppKit $(LIBPATH)
 OBJDIR = ./objs/
 OBJECTS = $(OBJDIR)/*.o
 
-SRC =	src/main.c		src/parse_map/error_map.c		src/parse_map/parse_map.c
+SRC =	src/main.c							\
+		src/parse_map/error_map.c			\
+		src/parse_map/parse_map.c			\
+		src/parse_map/map_length.c			\
 
 all: $(NAME)
 
