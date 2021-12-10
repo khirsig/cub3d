@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 10:06:34 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/10 10:24:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ static int	finalize_map(t_data *data, char **temp)
 			data->maze.map[y_index][x_index] = ' ';
 			x_index++;
 		}
-		// printf("%i\n", x_index);
-		// printf("%i: |%s|\n", y_index, data->maze.map[y_index]);
 		y_index++;
 	}
 	return (1);
