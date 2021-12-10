@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 13:51:35 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/10 13:56:11 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	parse_part_1(data.file, &data);
-	
+	printf("This is NO path: %s", data.maze.north_texture);
+	printf("This is SO path: %s", data.maze.south_texture);
+	printf("This is WE path: %s", data.maze.west_texture);
+	printf("This is EA path: %s", data.maze.east_texture);
+	printf("This is F: %i, %i, %i\n", data.maze.floor.r, data.maze.floor.g, data.maze.floor.b);
+	printf("This is C: %i, %i, %i\n", data.maze.ceiling.r, data.maze.ceiling.g, data.maze.ceiling.b);
 	if (parse_map(&data, argv[1]) == 0)
 		return (1);
 	index = 0;

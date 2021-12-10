@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/10 13:47:32 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/10 14:08:49 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,22 @@ void	parse_color(char *str, int i, t_data *data)
 		data->maze.floor.r = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.floor.b = ft_atoi(&str[i + 1]);
+		data->maze.floor.g = ft_atoi(&str[i + 1]);
+		i++;
 		while (str[i] != ',')
 			i++;
-		data->maze.floor.g = ft_atoi(&str[i + 1]);
+		data->maze.floor.b = ft_atoi(&str[i + 1]);
 	}
 	else
 	{
 		data->maze.ceiling.r = ft_atoi(&str[i + 1]);
 		while (str[i] != ',')
 			i++;
-		data->maze.ceiling.b = ft_atoi(&str[i + 1]);
+		data->maze.ceiling.g = ft_atoi(&str[i + 1]);
+		i++;
 		while (str[i] != ',')
 			i++;
-		data->maze.ceiling.g = ft_atoi(&str[i + 1]);
+		data->maze.ceiling.b = ft_atoi(&str[i + 1]);
 	}
 }
 
