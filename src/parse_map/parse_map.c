@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 10:31:22 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/11 15:16:10 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ int	parse_map(t_data *data, char *file)
 	char	*str;
 	int		index;
 
-	data->y_length = map_y_length(file);
+	data->y_length = map_y_length(data, file);
 	if (data->y_length <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
 	printf("y_length = %i\n", data->y_length);
-	data->x_length = map_x_length(file);
+	data->x_length = map_x_length(data, file);
 	if (data->x_length <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);

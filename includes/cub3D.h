@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/10 18:00:14 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/11 15:15:14 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_data {
 	int		file;
 	int		x_length;
 	int		y_length;
+	int		read_length;
 }				t_data;
 /*
 ** -----------------------------------------------------------------------------
@@ -37,8 +38,8 @@ typedef struct s_data {
 */
 int	parse_map(t_data *data, char *file);
 int	error_map(t_data *data, char **map);
-int	map_x_length(char *file);
-int	map_y_length(char *file);
+int	map_x_length(t_data *data, char *file);
+int	map_y_length(t_data *data, char *file);
 
 /*
 ** Parse color
