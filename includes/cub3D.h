@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/11 15:15:14 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/11 17:27:11 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,37 @@ typedef struct s_data {
 	int		y_length;
 	int		read_length;
 }				t_data;
+
+typedef struct s_vars {
+	void	*mlx;
+	void	*mlx_win;
+	void	*mlx_img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	double	xmax;
+	double	xmin;
+	double	ymax;
+	double	ymin;
+	
+	double	x;
+	double	y;
+	int		fractal_type;
+	double		julia_real;
+	double		julia_imag;
+	int			xoff;
+	int			yoff;
+}				t_vars;
+
+typedef struct s_game {
+	double	x_pos;
+	double	y_pos;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+}				t_game;
 /*
 ** -----------------------------------------------------------------------------
 ** Function prototypes
