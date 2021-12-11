@@ -78,4 +78,9 @@ int	map_y_length(t_data *data, char *file);
 int		parse_part_1(int fd, t_data *data);
 void	parse_color(char *str, int i, t_data *data);
 
+/*
+** Draw image
+*/
+void	fill_game(t_data *data, t_game *game);
+
 #endif
