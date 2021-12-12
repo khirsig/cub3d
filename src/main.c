@@ -6,11 +6,13 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/11 18:40:15 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:36:47 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
+
+
 
 int	main(int argc, char **argv)
 {
@@ -41,6 +43,9 @@ int	main(int argc, char **argv)
 	vars.mlx = mlx_init();
 	vars.mlx_win = mlx_new_window(vars.mlx, 1000, 1000, "Cub3D");
 	vars.mlx_img = mlx_new_image(vars.mlx, 1000, 1000);
+	vars.addr = mlx_get_data_addr
+		(vars.mlx_img, &vars.bits_per_pixel, &vars.line_length, &vars.endian);
+	calculate_dist(&data, &game, &vars);
 	mlx_loop(vars.mlx);
 	close(data.file);
 	return (0);
