@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/11 17:27:11 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:12:29 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../libs/libft/libft.h"
 # include "../libs/mlx/mlx.h"
 # include <stdio.h>
+# include <math.h>
 # include "maze.h"
 /*
 ** -----------------------------------------------------------------------------
