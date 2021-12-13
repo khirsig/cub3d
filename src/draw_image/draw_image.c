@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/12 17:01:34 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:20:58 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void drawVerLine(int i, int drawStart, int drawEnd, t_vars *vars, int side)
+void drawVerLine(int i, int drawStart, int drawEnd, t_data *data, int side)
 {
 	while (drawStart <= drawEnd)
 	{
 		if (side == 1)
-			my_mlx_pixel_put(vars, i, drawStart, 0x00FF0000);
+			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00FF0000);
 		else
-			my_mlx_pixel_put(vars, i, drawStart, 0x00A52A2A);
+			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00A52A2A);
 		drawStart++;
 	}
-	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->mlx_img, 0, 0);
+	// mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->mlx_img, 0, 0);
 }
 
 
-void	calculate_dist(t_data *data, t_game *game, t_vars *vars)
+void	calculate_dist(t_data *data)
 {
 	int		i;
 	double	cameraX;
@@ -64,17 +64,17 @@ void	calculate_dist(t_data *data, t_game *game, t_vars *vars)
 	{
 		if (i < 5)
 		{
-			printf("dirX %f, dirY %f.  ", game->dirX, game->dirY);
-			printf("planeX %f, planeY %f.  ", game->planeX, game->planeY);
+			printf("dirX %f, dirY %f.  ", data->player.dirX, data->player.dirY);
+			printf("planeX %f, planeY %f.  ", data->player.planeX, data->player.planeY);
 		}
 		cameraX = 2 * i / 1000.0 - 1;
-		rayDirX = game->dirX + game->planeX * cameraX;
-		rayDirY = game->dirY + game->planeY * cameraX;
+		rayDirX = data->player.dirX + data->player.planeX * cameraX;
+		rayDirY = data->player.dirY + data->player.planeY * cameraX;
 
 		if (i < 5)
 			printf("rayDirX %f, rayDirY %f.  ", rayDirX, rayDirY);
-		mapX = game->x_pos;
-		mapY = game->y_pos;
+		mapX = data->player.x_pos;
+		mapY = data->player.y_pos;
 
 		if (rayDirX == 0)
 			deltaDistX = 1e30;
@@ -91,22 +91,22 @@ void	calculate_dist(t_data *data, t_game *game, t_vars *vars)
 		if(rayDirX < 0)
 		{
 			stepX = -1;
-			sideDistX = (game->x_pos - mapX) * deltaDistX;
+			sideDistX = (data->player.x_pos - mapX) * deltaDistX;
 		}
 		else
 		{
 			stepX = 1;
-			sideDistX = (mapX + 1.0 - game->x_pos) * deltaDistX;
+			sideDistX = (mapX + 1.0 - data->player.x_pos) * deltaDistX;
 		}
 		if(rayDirY < 0)
 		{
 			stepY = -1;
-			sideDistY = (game->y_pos - mapY) * deltaDistY;
+			sideDistY = (data->player.y_pos - mapY) * deltaDistY;
 		}
 		else
 		{
 			stepY = 1;
-			sideDistY = (mapY + 1.0 - game->y_pos) * deltaDistY;
+			sideDistY = (mapY + 1.0 - data->player.y_pos) * deltaDistY;
 		}
 		//perform DDA
 		hit = 0;
@@ -147,7 +147,7 @@ void	calculate_dist(t_data *data, t_game *game, t_vars *vars)
 			drawEnd = 1000 - 1;
 		if (i < 5)
 			printf("This is the distance: %i (Start: %i, End %i)\n", drawEnd - drawStart, drawStart, drawEnd);
-		drawVerLine(i, drawStart, drawEnd, vars, side);
+		drawVerLine(i, drawStart, drawEnd, data, side);
 		i++;
 	}
 }
@@ -157,7 +157,7 @@ void	calculate_dist(t_data *data, t_game *game, t_vars *vars)
 Loops through map and fills position, direction and plane.
 */
 
-void	fill_game(t_data *data, t_game *game)
+void	fill_player(t_data *data)
 {
 	int	w;
 	int	h;
@@ -171,28 +171,29 @@ void	fill_game(t_data *data, t_game *game)
 			if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 'S'
 				|| data->maze.map[h][w] == 'W' || data->maze.map[h][w] == 'E')
 			{
-				game->x_pos = w + 0.5;
-				game->y_pos = h + 0.5;
+				printf("PPos: %i %i\n", h, w);
+				data->player.x_pos = w + 0.5;
+				data->player.y_pos = h + 0.5;
 				if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 's')
 				{
-					game->planeX = 0.66;
+					data->player.planeX = 0.66;
 					if (data->maze.map[h][w] == 'N')
-						game->dirY = 1;
+						data->player.dirY = 1;
 					else
-						game->dirY = -1;
+						data->player.dirY = -1;
 				}
 				else
 				{
-					game->planeY = 0.66;
+					data->player.planeY = 0.66;
 					if (data->maze.map[h][w] == 'O')
-						game->dirX = 1;
+						data->player.dirX = 1;
 					else
-						game->dirX = -1;
+						data->player.dirX = -1;
 				}
 			}
 			w++;
 		}
 		h++;
 	}
-	
+
 }
