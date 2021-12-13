@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/12 15:36:47 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 09:14:15 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char **argv)
 	vars.addr = mlx_get_data_addr
 		(vars.mlx_img, &vars.bits_per_pixel, &vars.line_length, &vars.endian);
 	calculate_dist(&data, &game, &vars);
+	minimap(&data, &vars, &game);
+	mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.mlx_img, 0, 0);
 	mlx_loop(vars.mlx);
 	close(data.file);
 	return (0);

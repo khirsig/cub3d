@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/12 17:01:34 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 09:35:41 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void drawVerLine(int i, int drawStart, int drawEnd, t_vars *vars, int side)
 			my_mlx_pixel_put(vars, i, drawStart, 0x00A52A2A);
 		drawStart++;
 	}
-	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->mlx_img, 0, 0);
+	// mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->mlx_img, 0, 0);
 }
 
 
@@ -171,6 +171,7 @@ void	fill_game(t_data *data, t_game *game)
 			if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 'S'
 				|| data->maze.map[h][w] == 'W' || data->maze.map[h][w] == 'E')
 			{
+				printf("PPos: %i %i\n", h, w);
 				game->x_pos = w + 0.5;
 				game->y_pos = h + 0.5;
 				if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 's')
@@ -194,5 +195,5 @@ void	fill_game(t_data *data, t_game *game)
 		}
 		h++;
 	}
-	
+
 }

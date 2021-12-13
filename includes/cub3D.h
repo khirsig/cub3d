@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/12 15:34:06 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 09:10:30 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_vars {
 	double	xmin;
 	double	ymax;
 	double	ymin;
-	
+
 	double	x;
 	double	y;
 	int		fractal_type;
@@ -74,6 +74,10 @@ int	map_x_length(t_data *data, char *file);
 int	map_y_length(t_data *data, char *file);
 
 /*
+** Minimap
+*/
+int	minimap(t_data *data, t_vars *vars, t_game *game);
+/*
 ** Parse color
 */
 int		parse_part_1(int fd, t_data *data);
@@ -84,5 +88,6 @@ void	parse_color(char *str, int i, t_data *data);
 */
 void	fill_game(t_data *data, t_game *game);
 void	calculate_dist(t_data *data, t_game *game, t_vars *vars);
+void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 
 #endif
