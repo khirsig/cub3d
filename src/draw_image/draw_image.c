@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/13 14:20:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/13 16:31:35 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,27 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 
 void drawVerLine(int i, int drawStart, int drawEnd, t_data *data, int side)
 {
+	int	j;
+
+	j = 0;
+	while (j < drawStart)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		j++;
+	}
 	while (drawStart <= drawEnd)
 	{
 		if (side == 1)
-			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00FF0000);
+			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00006CFF);
 		else
-			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00A52A2A);
+			my_mlx_pixel_put(&data->vars, i, drawStart, 0x00004CB2);
 		drawStart++;
+	}
+	j = drawEnd + 1;
+	while (j < 1000)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		j++;
 	}
 	// mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->mlx_img, 0, 0);
 }
@@ -174,9 +188,9 @@ void	fill_player(t_data *data)
 				printf("PPos: %i %i\n", h, w);
 				data->player.x_pos = w + 0.5;
 				data->player.y_pos = h + 0.5;
-				if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 's')
+				if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 'S')
 				{
-					data->player.planeX = 0.66;
+					data->player.planeX = 0.50;
 					if (data->maze.map[h][w] == 'N')
 						data->player.dirY = 1;
 					else
@@ -184,7 +198,7 @@ void	fill_player(t_data *data)
 				}
 				else
 				{
-					data->player.planeY = 0.66;
+					data->player.planeY = 0.50;
 					if (data->maze.map[h][w] == 'O')
 						data->player.dirX = 1;
 					else

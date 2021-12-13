@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 14:22:01 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/13 16:16:21 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	minimap(t_data *data)
 		x = 800;
 		while (x < 1000)
 		{
-			if (x >= 895 && x < 905 && y >= 95 && y < 105)
+			if (x >= 897 && x < 903 && y >= 97 && y < 103)
 				my_mlx_pixel_put(&data->vars, x, y, 0x00FE0000);
 			else if (x > 814 && x <= 986 && y < 186 && y >= 14)
 			{
@@ -43,14 +43,14 @@ int	minimap(t_data *data)
 					map_pos = data->maze.map[y_temp][x_temp];
 					if (map_pos == '1')
 						my_mlx_pixel_put(&data->vars, x, y, 0x00444444);
-					else
-						my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
+					// else
+					// 	my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
 				}
-				else
-					my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
+				// else
+				// 	my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
 			}
-			else
-				my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
+			// else
+			// 	my_mlx_pixel_put(&data->vars, x, y, 0x00FFFFFF);
 			x++;
 		}
 		y++;
