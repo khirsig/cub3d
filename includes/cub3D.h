@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 09:10:30 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/13 13:40:11 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int	map_y_length(t_data *data, char *file);
 ** Minimap
 */
 int	minimap(t_data *data, t_vars *vars, t_game *game);
+int	keyhook(int keystroke, t_vars *vars);
+int	player_move(int keystroke, t_game *game);
 /*
 ** Parse color
 */

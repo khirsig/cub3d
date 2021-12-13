@@ -6,24 +6,11 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 11:29:35 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/13 13:46:25 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-// int	put_minimap(t_data *data, t_vars *vars, t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	int	player_x;
-// 	int	player_y;
-// 	player_x = 7;
-// 	player_y = 14;
-// 	if (data->maze.map[player_x + 8])
-
-// }
 
 int	minimap(t_data *data, t_vars *vars, t_game *game)
 {
@@ -34,7 +21,6 @@ int	minimap(t_data *data, t_vars *vars, t_game *game)
 	int		y_temp;
 
 	y = 0;
-	// printf("MODULO: %d\n", -11 / 10);
 	(void)game;
 	(void)data;
 	while (y < 200)
