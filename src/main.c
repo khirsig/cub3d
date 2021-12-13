@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 13:47:39 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/13 14:30:18 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	t_vars	vars;
-	t_game	game;
 	int		index;
 
 	(void)argc;
@@ -39,16 +37,14 @@ int	main(int argc, char **argv)
 		printf("|%s|\n", data.maze.map[index]);
 		index++;
 	}
-	fill_game(&data, &game);
-	vars.mlx = mlx_init();
-	vars.mlx_win = mlx_new_window(vars.mlx, 1000, 1000, "Cub3D");
-	vars.mlx_img = mlx_new_image(vars.mlx, 1000, 1000);
-	vars.addr = mlx_get_data_addr
-		(vars.mlx_img, &vars.bits_per_pixel, &vars.line_length, &vars.endian);
-	calculate_dist(&data, &game, &vars);
-	minimap(&data, &vars, &game);
-	mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.mlx_img, 0, 0);
-	mlx_loop(vars.mlx);
+	fill_player(&data);
+	data.vars.mlx = mlx_init();
+	data.vars.mlx_win = mlx_new_window(data.vars.mlx, 1000, 1000, "Cub3D");
+	data.vars.mlx_img = mlx_new_image(data.vars.mlx, 1000, 1000);
+	data.vars.addr = mlx_get_data_addr
+		(data.vars.mlx_img, &data.vars.bits_per_pixel, &data.vars.line_length, &data.vars.endian);
+	mlx_loop_hook(data.vars.mlx, gameloop, &data);
+	mlx_loop(data.vars.mlx);
 	close(data.file);
 	return (0);
 }
