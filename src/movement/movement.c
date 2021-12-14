@@ -6,27 +6,44 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 10:45:54 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 14:15:32 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 int	player_movement(t_data *data)
 {
-	if (data->player.walk_up == 1)
+	int	temp_x;
+	int	temp_y;
+
+	temp_y = data->player.y_pos + data->player.dirY * 0.11;
+	temp_x = data->player.x_pos + data->player.dirX * 0.11;
+	if (data->player.walk_up == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
 		data->player.y_pos += data->player.dirY * 0.10;
 		data->player.x_pos += data->player.dirX * 0.10;
 	}
-	if (data->player.walk_down == 1)
+	temp_y = data->player.y_pos - data->player.dirY * 0.10;
+	temp_x = data->player.x_pos - data->player.dirX * 0.10;
+	if (data->player.walk_down == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
 		data->player.y_pos -= data->player.dirY * 0.10;
 		data->player.x_pos -= data->player.dirX * 0.10;
 	}
-	if (data->player.walk_right == 1)
+	temp_y = data->player.y_pos + data->player.planeY * 0.10;
+	temp_x = data->player.x_pos + data->player.planeX * 0.10;
+	if (data->player.walk_right == 1 && data->maze.map[temp_y][temp_x] != '1')
+	{
 		data->player.x_pos +=  data->player.planeX * 0.10;
-	if (data->player.walk_left == 1)
+		data->player.y_pos +=  data->player.planeY * 0.10;
+	}
+	temp_y = data->player.y_pos - data->player.planeY * 0.10;
+	temp_x = data->player.x_pos - data->player.planeX * 0.10;
+	if (data->player.walk_left == 1 && data->maze.map[temp_y][temp_x] != '1')
+	{
 		data->player.x_pos -= data->player.planeX * 0.10;
+		data->player.y_pos -= data->player.planeY * 0.10;
+	}
 	return (0);
 }
 
