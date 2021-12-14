@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 10:01:24 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 10:03:37 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	minimap(t_data *data)
 			else if (x > 814 && x <= 986 && y < 186 && y >= 14)
 			{
 				map_pos = get_map_pos(data, x, y);
-					if (map_pos == '1')
-						my_mlx_pixel_put(&data->vars, x, y, 0x00444444);
+				if (map_pos == '1')
+					my_mlx_pixel_put(&data->vars, x, y, 0x00444444);
 			}
 			x++;
 		}
