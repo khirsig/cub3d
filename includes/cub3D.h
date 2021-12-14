@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
 /*   Updated: 2021/12/13 16:11:48 by khirsig          ###   ########.fr       */
@@ -24,6 +24,7 @@
 # include "maze.h"
 # include "player.h"
 # include "vars.h"
+# include "ray.h"
 /*
 ** -----------------------------------------------------------------------------
 ** Structs and typedef.
@@ -32,6 +33,7 @@ typedef struct s_data {
 	t_maze		maze;
 	t_player	player;
 	t_vars		vars;
+	t_ray		ray;
 	int			file;
 	int			x_length;
 	int			y_length;
@@ -73,7 +75,7 @@ void	parse_color(char *str, int i, t_data *data);
 ** Draw image
 */
 void	fill_player(t_data *data);
-void	calculate_dist(t_data *data);
+void	draw_view(t_data *data);
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 
 #endif
