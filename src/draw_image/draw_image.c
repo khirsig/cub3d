@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/14 09:53:37 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 15:25:08 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,27 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 
 void	draw_ver_line(int i, t_data *data)
 {
+	int	j;
+
+	j = 0;
+	while (j < data->ray.drawStart)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		j++;
+	}
 	while (data->ray.drawStart <= data->ray.drawEnd)
 	{
 		if (data->ray.side == 1)
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00FF0000);
+			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00006DFF);
 		else
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00A52A2A);
+			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
 		data->ray.drawStart++;
+	}
+	j = data->ray.drawEnd + 1;
+	while (j < 1000)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		j++;
 	}
 }
 
@@ -83,13 +97,13 @@ void	calculate_step_and_sideDist(t_data *data)
 	}
 	if (data->ray.rayDirY < 0)
 	{
-		data->ray.stepY = 1;
+		data->ray.stepY = -1;
 		data->ray.sideDistY = (data->player.y_pos - data->ray.mapY)
 			* data->ray.deltaDistY;
 	}
 	else
 	{
-		data->ray.stepY = -1;
+		data->ray.stepY = 1;
 		data->ray.sideDistY = (data->ray.mapY + 1.0 - data->player.y_pos)
 			* data->ray.deltaDistY;
 	}
