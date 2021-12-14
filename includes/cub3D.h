@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 15:58:31 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:11:48 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ int		minimap(t_data *data);
 ** Loop
 */
 int		gameloop(t_data *data);
+int		keyhook(int keystroke, t_data *data);
+int		player_move(int keystroke, t_data *data);
+/*
+** Player Movement
+*/
+int	player_press(int keystroke, t_data *data);
+int	player_release(int keystroke, t_data *data);
+int	player_movement(t_data *data);
+int	player_rotation(t_data *data);
 /*
 ** Parse color
 */

@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 15:58:21 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:11:30 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	gameloop(t_data *data)
 {
+	mlx_clear_window(data->vars.mlx, data->vars.mlx_win);
+	player_movement(data);
+	player_rotation(data);
 	draw_view(data);
 	minimap(data);
 	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win, data->vars.mlx_img, 0, 0);
