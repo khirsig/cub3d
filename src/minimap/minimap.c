@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 10:03:37 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 10:46:13 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static char get_map_pos(t_data *data, int x, int y)
 {
-	char	ret;
 	int		x_temp;
 	int		y_temp;
 

@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 09:51:18 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 10:45:54 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,9 @@ int	player_movement(t_data *data)
 		data->player.x_pos -= data->player.dirX * 0.10;
 	}
 	if (data->player.walk_right == 1)
-	{
-		// data->player.y_pos += data->player.dirX * 0.10;
 		data->player.x_pos +=  data->player.planeX * 0.10;
-	}
 	if (data->player.walk_left == 1)
-	{
 		data->player.x_pos -= data->player.planeX * 0.10;
-		// data->player.x_pos -= data->player.dirY * 0.10;
-	}
 	return (0);
 }
 
@@ -96,8 +90,6 @@ int	player_press(int keystroke, t_data *data)
 		data->player.is_rotating = 1;
 		data->player.rotation_direction = RIGHT;
 	}
-	// if (keystroke == 1)
-	// 	data->player.y_pos++;
 	return (0);
 }
 
