@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/14 15:34:44 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 18:49:17 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,18 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+// game->wall = mlx_xpm_file_to_image(game->mlx, "./sprites/wall.xpm", &wid, &hght);
+// mlx_put_image_to_window(game->mlx, game->win, game->wall, x, y);
+
 void	draw_ver_line(int i, t_data *data)
 {
-	int	j;
-
+	int		j;
+	void	*wall;
+	int		wid = 64;
+	int		hght = 64;
+	
+	
+	wall = mlx_xpm_file_to_image(data->vars.mlx, data->maze.north_texture, &wid, &hght);
 	j = 0;
 	while (j < data->ray.drawStart)
 	{
@@ -182,6 +190,10 @@ Helper function
 */
 void	fill_player_helper(t_data *data, int h, int w)
 {
+	data->maze.north_texture = "../../resources/textures/wall.xpm";
+	data->maze.south_texture = "../../resources/textures/wall.xpm";
+	data->maze.west_texture = "../../resources/textures/wall.xpm";
+	data->maze.east_texture = "../../resources/textures/wall.xpm";
 	if (data->maze.map[h][w] != '0' && data->maze.map[h][w] != '1')
 	{
 		data->player.x_pos = w + 0.5;
