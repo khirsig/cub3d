@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/14 15:25:08 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 15:34:44 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,19 +188,29 @@ void	fill_player_helper(t_data *data, int h, int w)
 		data->player.y_pos = h + 0.5;
 		if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 'S')
 		{
-			data->player.planeX = 0.66;
 			if (data->maze.map[h][w] == 'N')
+			{
+				data->player.planeX = -0.66;
 				data->player.dirY = 1;
+			}
 			else
+			{
+				data->player.planeX = 0.66;
 				data->player.dirY = -1;
+			}
 		}
 		else
 		{
-			data->player.planeY = 0.66;
 			if (data->maze.map[h][w] == 'E')
+			{
+				data->player.planeY = 0.66;
 				data->player.dirX = 1;
+			}
 			else
+			{
+				data->player.planeY = -0.66;
 				data->player.dirX = -1;
+			}
 		}
 	}
 }
