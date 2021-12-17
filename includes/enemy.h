@@ -6,16 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 20:54:13 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 21:13:32 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENEMY_H
 # define ENEMY_H
 
-# define RAT 0;
-# define SKELETON 1;
-# define GOBLIN 2;
+# define RAT 0
+# define SKELETON 1
+# define GOBLIN 2
 
 # define IDLE 0
 # define WALK 1
@@ -30,6 +30,8 @@ typedef struct s_enemy {
 	int			texWidth;
 	int			texHeight;
 	int			status;
+	int			last_x;
+	int			last_y;
 	float		health;
 	float		damage;
 	float		attack_speed;

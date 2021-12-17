@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 20:55:33 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 21:25:05 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	count_enemies(t_data *data)
 		}
 		y++;
 	}
-	printf("%i\n", count);
 	return (count);
 }
 
@@ -53,6 +52,8 @@ static void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->animstep = 0;
 	enemy->sprite.x = x + 0.50;
 	enemy->sprite.y = y + 0.50;
+	enemy->last_x = x;
+	enemy->last_y = y;
 	enemy->texture = malloc(sizeof(int *) * 15);
 	enemy->texture[0] = load_texture(data, "./resources/enemy/rat00.xpm");
 	enemy->texture[1] = load_texture(data, "./resources/enemy/rat01.xpm");
@@ -87,8 +88,10 @@ static void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->sprite.uDiv = 0.5;
 	enemy->sprite.vMove = 100.0;
 	enemy->animstep = 0;
-	enemy->sprite.x = x + 0.70;
-	enemy->sprite.y = y + 0.70;
+	enemy->sprite.x = x + 0.50;
+	enemy->sprite.y = y + 0.50;
+	enemy->last_x = x;
+	enemy->last_y = y;
 	enemy->texture = malloc(sizeof(int *) * 15);
 	enemy->texture[0] = load_texture(data, "./resources/enemy/goblin_00.xpm");
 	enemy->texture[1] = load_texture(data, "./resources/enemy/goblin_01.xpm");

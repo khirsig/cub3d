@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 21:01:03 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 21:29:11 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int 	*load_texture(t_data *data, char *path)
 		}
 		y++;
 	}
+	free(img);
+	free(addr);
 	return (texture);
 }
 
@@ -83,6 +85,5 @@ int	sprite_init(t_data *data)
 	data->numEnemies = count_enemies(data);
 	data->enemy = malloc(sizeof(t_enemy) * data->numEnemies);
 	setup_enemies(data);
-	printf("%i\n", data->numEnemies);
 	return (0);
 }

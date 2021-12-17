@@ -6,17 +6,62 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 20:51:42 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 22:36:16 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+static int	get_sprite_num(t_data *data, int needle)
+{
+	int i;
+
+	i = 0;
+	while (i < data->numEnemies)
+	{
+		if (data->enemy[i].sprite.order == needle)
+			return (i);
+		i++;
+	}
+	return (0);
+}
+
+static void	sort_sprites(t_data *data)
+{
+	int i;
+	int	count;
+	int	next_count;
+	int sort_actions;
+	int temp;
+
+	sort_actions = 1;
+	while (sort_actions != 0)
+	{
+		sort_actions = 0;
+		i = 0;
+		while (i < data->numEnemies)
+		{
+			count = get_sprite_num(data, i);
+			if (count + 1 < data->numEnemies)
+				next_count = get_sprite_num(data, count + 1);
+			if (count + 1 < data->numEnemies && data->enemy[count].sprite.distance < data->enemy[next_count].sprite.distance)
+			{
+				temp = data->enemy[count].sprite.order;
+				data->enemy[count].sprite.order =  data->enemy[next_count].sprite.order;
+				data->enemy[next_count].sprite.order = temp;
+				sort_actions++;
+			}
+			i++;
+		}
+	}
+}
 
 int	sprite_casting(t_data *data)
 {
 	int color;
 	int vMoveScreen;
 	int i;
+	int count;
 	int w;
 	int h;
 	int d;
@@ -35,11 +80,13 @@ int	sprite_casting(t_data *data)
 										+ (data->player.y_pos - data->enemy[i].sprite.y) * (data->player.y_pos - data->enemy[i].sprite.y));
 		i++;
 	}
+	sort_sprites(data);
 	/*
 	** after sorting the sprites, do the projection and draw them
 	*/
-	i = 0;
-	while (i < data->numEnemies)
+	count = 0;
+	i = get_sprite_num(data, count);
+	while (count < data->numEnemies)
 	{
 		/*
 		** translate sprite position to relative to camera
@@ -95,7 +142,8 @@ int	sprite_casting(t_data *data)
 			}
 			data->enemy[i].sprite.stripe++;
 		}
-		i++;
+		count++;
+		i = get_sprite_num(data, count);
 	}
 	return (0);
 }
