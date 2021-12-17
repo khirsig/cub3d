@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 15:58:43 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 10:36:11 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,33 @@ int	player_movement(t_data *data)
 	int	temp_x;
 	int	temp_y;
 
-	temp_y = data->player.y_pos + data->player.dirY * 0.11;
-	temp_x = data->player.x_pos + data->player.dirX * 0.11;
+	temp_y = data->player.y_pos + data->player.dirY * data->player.speed + 0.02;
+	temp_x = data->player.x_pos + data->player.dirX * data->player.speed + 0.02;
 	if (data->player.walk_up == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
-		data->player.y_pos += data->player.dirY * 0.10;
-		data->player.x_pos += data->player.dirX * 0.10;
+		data->player.y_pos += data->player.dirY * data->player.speed;
+		data->player.x_pos += data->player.dirX * data->player.speed;
 	}
-	temp_y = data->player.y_pos - data->player.dirY * 0.11;
-	temp_x = data->player.x_pos - data->player.dirX * 0.11;
+	temp_y = data->player.y_pos - data->player.dirY * data->player.speed + 0.02;
+	temp_x = data->player.x_pos - data->player.dirX * data->player.speed + 0.02;
 	if (data->player.walk_down == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
-		data->player.y_pos -= data->player.dirY * 0.10;
-		data->player.x_pos -= data->player.dirX * 0.10;
+		data->player.y_pos -= data->player.dirY * data->player.speed;
+		data->player.x_pos -= data->player.dirX * data->player.speed;
 	}
-	temp_y = data->player.y_pos + data->player.planeY * 0.11;
-	temp_x = data->player.x_pos + data->player.planeX * 0.11;
+	temp_y = data->player.y_pos + data->player.planeY * data->player.speed + 0.02;
+	temp_x = data->player.x_pos + data->player.planeX * data->player.speed + 0.02;
 	if (data->player.walk_right == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
-		data->player.x_pos +=  data->player.planeX * 0.10;
-		data->player.y_pos +=  data->player.planeY * 0.10;
+		data->player.x_pos +=  data->player.planeX * data->player.speed;
+		data->player.y_pos +=  data->player.planeY * data->player.speed;
 	}
-	temp_y = data->player.y_pos - data->player.planeY * 0.11;
-	temp_x = data->player.x_pos - data->player.planeX * 0.11;
+	temp_y = data->player.y_pos - data->player.planeY * data->player.speed + 0.02;
+	temp_x = data->player.x_pos - data->player.planeX * data->player.speed + 0.02;
 	if (data->player.walk_left == 1 && data->maze.map[temp_y][temp_x] != '1')
 	{
-		data->player.x_pos -= data->player.planeX * 0.10;
-		data->player.y_pos -= data->player.planeY * 0.10;
+		data->player.x_pos -= data->player.planeX * data->player.speed;
+		data->player.y_pos -= data->player.planeY * data->player.speed;
 	}
 	return (0);
 }
@@ -74,6 +74,11 @@ int	player_rotation(t_data *data)
 
 int	player_release(int keystroke, t_data *data)
 {
+	if (keystroke == 257 && data->player.is_sprinting == 1)
+	{
+		data->player.is_sprinting = 0;
+		data->player.speed = 0.03;
+	}
 	if (keystroke == 2)
 		data->player.walk_right = 0;
 	if (keystroke == 0)
@@ -97,6 +102,11 @@ int	player_press(int keystroke, t_data *data)
 		data->player.walk_up = 1;
 	if (keystroke == 1)
 		data->player.walk_down = 1;
+	if (keystroke == 257 && data->player.stamina > 0)
+	{
+		data->player.is_sprinting = 1;
+		data->player.speed = 0.10;
+	}
 	if (keystroke == 124)
 	{
 		data->player.is_rotating = 1;

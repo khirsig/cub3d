@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 10:19:38 by khirsig          ###   ########.fr       */
+/*   Created: 2021/12/17 09:51:02 by khirsig           #+#    #+#             */
+/*   Updated: 2021/12/17 10:36:06 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	gameloop(t_data *data)
+int	init_player(t_data *data)
 {
-	mlx_clear_window(data->vars.mlx, data->vars.mlx_win);
-	player_movement(data);
-	player_rotation(data);
-	draw_view(data);
-	minimap(data);
-	modify_stamina(data);
-	display_vitals(data);
-	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win, data->vars.mlx_img, 0, 0);
+	data->player.speed = 0.03;
+	data->player.health = 100;
+	data->player.stamina = 100;
+	data->player.is_sprinting = 0;
+	data->player.walk_left = 0;
+	data->player.walk_right = 0;
+	data->player.walk_down = 0;
+	data->player.walk_up = 0;
+	data->player.is_rotating = 0;
+	data->player.rotation_direction = LEFT;
 	return (0);
 }
