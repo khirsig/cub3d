@@ -21,6 +21,7 @@ SRC =	src/main.c							\
 		src/parse_color/parse_color.c		\
 		src/parse_color/parse_texture.c		\
 		src/draw_image/draw_image.c			\
+		src/draw_image/get_textures.c		\
 
 all: $(NAME)
 

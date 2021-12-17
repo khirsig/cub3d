@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/14 18:49:17 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:25:11 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	draw_ver_line(int i, t_data *data)
 	
 	wall = mlx_xpm_file_to_image(data->vars.mlx, data->maze.north_texture, &wid, &hght);
 	j = 0;
+	printf("Hi\n");
 	while (j < data->ray.drawStart)
 	{
 		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
@@ -40,8 +41,17 @@ void	draw_ver_line(int i, t_data *data)
 	}
 	while (data->ray.drawStart <= data->ray.drawEnd)
 	{
+		// if (data->ray.side == 1)
+		// 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00006DFF);
+		// else
+		// 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
+		// data->ray.drawStart++;
+		int texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
+		printf("Hi 2\n");
+        data->ray.texPos += data->ray.step;
+        int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
 		if (data->ray.side == 1)
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00006DFF);
+			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 		else
 			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
 		data->ray.drawStart++;
@@ -158,6 +168,31 @@ void	calc_ray_dist(t_data *data)
 	data->ray.drawEnd = data->ray.lineHeight / 2 + 1000 / 2;
 	if (data->ray.drawEnd >= 1000)
 		data->ray.drawEnd = 1000 - 1;
+
+	//texturing calculations
+	// int texNum = worldMap[mapX][mapY] - 1; //1 subtracted from it so that texture 0 can be used!
+
+	//calculate value of wallX
+	if(data->ray.side == 0)
+		data->ray.wallX = data->player.y_pos + data->ray.perpWallDist * data->ray.rayDirY;
+	else
+		data->ray.wallX = data->player.x_pos + data->ray.perpWallDist * data->ray.rayDirX;
+	data->ray.wallX -= floor(data->ray.wallX);
+
+	//x coordinate on the texture
+	data->ray.texWidth = 64;
+	data->ray.texHeight = 64;
+	data->ray.texX = (int)(data->ray.wallX * (double)(data->ray.texWidth));
+	if(data->ray.side == 0 && data->ray.rayDirX > 0)
+		data->ray.texX = data->ray.texWidth - data->ray.texX - 1;
+	if(data->ray.side == 1 && data->ray.rayDirY < 0)
+		data->ray.texX = data->ray.texWidth - data->ray.texX - 1;
+
+	// TODO: an integer-only bresenham or DDA like algorithm could make the texture coordinate stepping faster
+	// How much to increase the texture coordinate per screen pixel
+	data->ray.step = 1.0 * data->ray.texHeight / data->ray.lineHeight;
+	// Starting texture coordinate
+	data->ray.texPos = (data->ray.drawStart - 1000 / 2 + data->ray.lineHeight / 2) * data->ray.step;
 }
 
 /*

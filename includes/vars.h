@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vars.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 14:15:52 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 13:14:04 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct s_vars {
 	void	*mlx_win;
 	void	*mlx_img;
 	char	*addr;
+	int		**texture;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -25,13 +26,6 @@ typedef struct s_vars {
 	double	xmin;
 	double	ymax;
 	double	ymin;
-	double	x;
-	double	y;
-	int		fractal_type;
-	double		julia_real;
-	double		julia_imag;
-	int			xoff;
-	int			yoff;
 }				t_vars;
 
 #endif

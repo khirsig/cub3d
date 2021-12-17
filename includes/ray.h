@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:20:11 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/13 17:27:07 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:12:26 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,11 @@ typedef struct s_ray {
 	int		lineHeight;
 	int		drawStart;
 	int		drawEnd;
+	double	wallX;
+	int		texX;
+	int		texWidth;
+	int		texHeight;
+	double	step;
+	double	texPos;
 }				t_ray;
 #endif
