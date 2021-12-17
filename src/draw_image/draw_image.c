@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 15:25:11 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:31:07 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ void	draw_ver_line(int i, t_data *data)
 		int texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
 		printf("Hi 2\n");
         data->ray.texPos += data->ray.step;
+		printf("Hi 3\n");
         int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
+		printf("Hi 4\n");
 		if (data->ray.side == 1)
 			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 		else
@@ -208,6 +210,7 @@ void	draw_view(t_data *data)
 	int		i;
 
 	i = 0;
+	load_texture(data);
 	while (i < 1000)
 	{
 		calculate_ray_vector(data, i);
