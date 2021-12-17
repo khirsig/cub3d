@@ -17,7 +17,9 @@ SRC =	src/main.c							\
 		src/parse_map/map_length.c			\
 		src/minimap/minimap.c				\
 		src/loop/loop.c						\
-		src/movement/movement.c				\
+		src/keyhook/keyhook_handler.c		\
+		src/keyhook/movement.c				\
+		src/keyhook/destroy.c				\
 		src/parse_color/parse_color.c		\
 		src/parse_color/parse_texture.c		\
 		src/draw_image/draw_image.c			\

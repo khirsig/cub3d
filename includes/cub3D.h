@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 16:11:48 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 09:26:32 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ typedef struct s_data {
 ** -----------------------------------------------------------------------------
 ** Function prototypes
 */
-int	parse_map(t_data *data, char *file);
-int	error_map(t_data *data, char **map);
-int	map_x_length(t_data *data, char *file);
-int	map_y_length(t_data *data, char *file);
+int		parse_map(t_data *data, char *file);
+int		error_map(t_data *data, char **map);
+int		map_x_length(t_data *data, char *file);
+int		map_y_length(t_data *data, char *file);
 /*
 ** Minimap
 */
@@ -56,15 +56,20 @@ int		minimap(t_data *data);
 ** Loop
 */
 int		gameloop(t_data *data);
-int		keyhook(int keystroke, t_data *data);
 int		player_move(int keystroke, t_data *data);
+/*
+** Keyhooks
+*/
+int		keyhook_handler(t_data *data);
+int		destroy(int keystroke, t_data *data);
+int		close_button(t_data *data);
 /*
 ** Player Movement
 */
-int	player_press(int keystroke, t_data *data);
-int	player_release(int keystroke, t_data *data);
-int	player_movement(t_data *data);
-int	player_rotation(t_data *data);
+int		player_press(int keystroke, t_data *data);
+int		player_release(int keystroke, t_data *data);
+int		player_movement(t_data *data);
+int		player_rotation(t_data *data);
 /*
 ** Parse color
 */
