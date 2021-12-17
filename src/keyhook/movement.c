@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/14 14:22:41 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/14 15:58:43 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,16 +106,6 @@ int	player_press(int keystroke, t_data *data)
 	{
 		data->player.is_rotating = 1;
 		data->player.rotation_direction = RIGHT;
-	}
-	return (0);
-}
-
-int	keyhook(int keystroke, t_data *data)
-{
-	if (keystroke == 53 || keystroke == 12)
-	{
-		mlx_destroy_window(data->vars.mlx, data->vars.mlx_win);
-		exit(0);
 	}
 	return (0);
 }
