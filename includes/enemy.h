@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 11:25:44 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 14:20:57 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 typedef struct s_enemy {
 	t_sprite	sprite;
 	int			type;
+	int			*texture;
+	int			texWidth;
+	int			texHeight;
 	float		health;
 	float		damage;
 	float		attack_speed;

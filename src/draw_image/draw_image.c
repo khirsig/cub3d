@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/14 15:34:44 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 13:10:58 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,7 @@ void	draw_view(t_data *data)
 		calculate_step_and_sideDist(data);
 		perform_DDA(data);
 		calc_ray_dist(data);
+		data->ray.ZBuffer[i] = data->ray.perpWallDist;
 		draw_ver_line(i, data);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 14:15:52 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 12:57:00 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_vars {
 	double		julia_imag;
 	int			xoff;
 	int			yoff;
+
 }				t_vars;
 
 #endif

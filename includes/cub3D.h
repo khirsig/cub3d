@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 10:19:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 14:33:06 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include "player.h"
 # include "vars.h"
 # include "ray.h"
+# include "enemy.h"
 /*
 ** -----------------------------------------------------------------------------
 ** Structs and typedef.
@@ -32,12 +33,14 @@
 typedef struct s_data {
 	t_maze		maze;
 	t_player	player;
+	t_enemy		enemy;
 	t_vars		vars;
 	t_ray		ray;
 	int			file;
 	int			x_length;
 	int			y_length;
 	int			read_length;
+	int			numEnemies;
 }				t_data;
 
 /*
@@ -73,6 +76,11 @@ int		player_release(int keystroke, t_data *data);
 int		player_movement(t_data *data);
 int		player_rotation(t_data *data);
 int		modify_stamina(t_data *data);
+/*
+** Enemy
+*/
+int	sprite_init(t_data *data);
+int	sprite_casting(t_data *data);
 /*
 ** Parse color
 */

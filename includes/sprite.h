@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 11:30:48 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 16:04:42 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ typedef struct s_sprite {
 		double	invDet;
 		double	transformX;
 		double	transformY;
+		double	distance;
+		double	spriteX;
+		double	spriteY;
+		float	uDiv;
+		float	vDiv;
+		float	vMove;
+		int		order;
 		int		ScreenX;
 		int		height;
 		int		width;
@@ -28,6 +35,7 @@ typedef struct s_sprite {
 		int		drawEndY;
 		int		stripe;
 		int		texX;
+		int		texY;
 }				t_sprite;
 
 #endif

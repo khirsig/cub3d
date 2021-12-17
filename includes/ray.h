@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:20:11 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/13 17:27:07 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/17 13:09:56 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ typedef struct s_ray {
 	int		lineHeight;
 	int		drawStart;
 	int		drawEnd;
+	double	ZBuffer[1000];
 }				t_ray;
 #endif
