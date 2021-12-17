@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 14:33:06 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 16:34:10 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,9 @@ int		modify_stamina(t_data *data);
 /*
 ** Enemy
 */
-int	sprite_init(t_data *data);
-int	sprite_casting(t_data *data);
+int		sprite_init(t_data *data);
+int		sprite_casting(t_data *data);
+void	cycle_animstep(t_data *data);
 /*
 ** Parse color
 */

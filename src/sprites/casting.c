@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 16:07:18 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 16:35:30 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	sprite_casting(t_data *data)
 				{
 					d = (y - vMoveScreen) * 256 - h * 128 + data->enemy.sprite.height * 128;
 					data->enemy.sprite.texY = ((d * data->enemy.texHeight) / data->enemy.sprite.height) / 256;
-					color = data->enemy.texture[data->enemy.texWidth * data->enemy.sprite.texY + data->enemy.sprite.texX];
+					color = data->enemy.texture[(int)data->enemy.animstep][data->enemy.texWidth * data->enemy.sprite.texY + data->enemy.sprite.texX];
 					if (color != 0xFFFFFF)
 						my_mlx_pixel_put(&data->vars, data->enemy.sprite.stripe, y, color);
 					y++;
