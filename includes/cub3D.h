@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 09:26:32 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 10:19:58 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int		minimap(t_data *data);
 */
 int		gameloop(t_data *data);
 int		player_move(int keystroke, t_data *data);
+int		display_vitals(t_data *data);
 /*
 ** Keyhooks
 */
@@ -64,12 +65,14 @@ int		keyhook_handler(t_data *data);
 int		destroy(int keystroke, t_data *data);
 int		close_button(t_data *data);
 /*
-** Player Movement
+** Player
 */
+int		init_player(t_data *data);
 int		player_press(int keystroke, t_data *data);
 int		player_release(int keystroke, t_data *data);
 int		player_movement(t_data *data);
 int		player_rotation(t_data *data);
+int		modify_stamina(t_data *data);
 /*
 ** Parse color
 */

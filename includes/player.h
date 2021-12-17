@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 16:26:59 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 10:26:04 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ typedef struct s_player {
 	double	dirY;
 	double	planeX;
 	double	planeY;
+	float	speed;
 	int		walk_left;
 	int		walk_right;
 	int		walk_up;
 	int		walk_down;
 	int		is_rotating;
 	int		rotation_direction;
+	int		is_sprinting;
+	float	health;
+	float	stamina;
 }				t_player;
 #endif

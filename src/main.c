@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 09:26:45 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 09:57:03 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@ int	main(int argc, char **argv)
 	int		index;
 
 	(void)argc;
-	data.player.walk_left = 0;
-	data.player.walk_right = 0;
-	data.player.walk_down = 0;
-	data.player.walk_up = 0;
-	data.player.is_rotating = 0;
-	data.player.rotation_direction = LEFT;
+	init_player(&data);
 	data.file = open(argv[1], O_RDONLY);
 	if (data.file == -1)
 	{

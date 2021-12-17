@@ -15,10 +15,13 @@ SRC =	src/main.c							\
 		src/parse_map/error_map.c			\
 		src/parse_map/parse_map.c			\
 		src/parse_map/map_length.c			\
+		src/player/movement.c				\
+		src/player/init_player.c			\
+		src/player/display_vitals.c			\
+		src/player/mod_vitals.c				\
 		src/minimap/minimap.c				\
 		src/loop/loop.c						\
 		src/keyhook/keyhook_handler.c		\
-		src/keyhook/movement.c				\
 		src/keyhook/destroy.c				\
 		src/parse_color/parse_color.c		\
 		src/parse_color/parse_texture.c		\
