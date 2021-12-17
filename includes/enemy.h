@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 16:34:56 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 20:54:13 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # define SKELETON 1;
 # define GOBLIN 2;
 
+# define IDLE 0
+# define WALK 1
+# define COMBAT 2
+
 # include "sprite.h"
 
 typedef struct s_enemy {
@@ -25,11 +29,14 @@ typedef struct s_enemy {
 	int			type;
 	int			texWidth;
 	int			texHeight;
+	int			status;
 	float		health;
 	float		damage;
 	float		attack_speed;
 	float		move_speed;
 	float		animstep;
+	float		idlestep;
+	float		min_distance;
 }				t_enemy;
 
 #endif

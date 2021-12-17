@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 16:34:10 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:46:02 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 typedef struct s_data {
 	t_maze		maze;
 	t_player	player;
-	t_enemy		enemy;
+	t_enemy		*enemy;
 	t_vars		vars;
 	t_ray		ray;
 	int			file;
@@ -82,6 +82,11 @@ int		modify_stamina(t_data *data);
 int		sprite_init(t_data *data);
 int		sprite_casting(t_data *data);
 void	cycle_animstep(t_data *data);
+int		count_enemies(t_data *data);
+void	setup_enemies(t_data *data);
+int 	*load_texture(t_data *data, char *path);
+void	enemy_movement(t_data *data);
+
 /*
 ** Parse color
 */

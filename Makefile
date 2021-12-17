@@ -19,8 +19,10 @@ SRC =	src/main.c							\
 		src/player/init_player.c			\
 		src/player/display_vitals.c			\
 		src/player/mod_vitals.c				\
-		src/sprites/casting.c				\
-		src/sprites/sprite_init.c			\
+		src/enemy/casting.c					\
+		src/enemy/sprite_init.c				\
+		src/enemy/count_enemy.c				\
+		src/enemy/enemy_move.c				\
 		src/minimap/minimap.c				\
 		src/loop/loop.c						\
 		src/keyhook/keyhook_handler.c		\

@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 15:06:13 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 18:16:41 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 
 	(void)argc;
 	init_player(&data);
+	data.numEnemies = 0;
 	data.file = open(argv[1], O_RDONLY);
 	if (data.file == -1)
 	{
