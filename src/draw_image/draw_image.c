@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 15:31:07 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/17 19:25:46 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	draw_ver_line(int i, t_data *data)
 	
 	wall = mlx_xpm_file_to_image(data->vars.mlx, data->maze.north_texture, &wid, &hght);
 	j = 0;
-	printf("Hi\n");
 	while (j < data->ray.drawStart)
 	{
 		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
@@ -41,17 +40,9 @@ void	draw_ver_line(int i, t_data *data)
 	}
 	while (data->ray.drawStart <= data->ray.drawEnd)
 	{
-		// if (data->ray.side == 1)
-		// 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00006DFF);
-		// else
-		// 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
-		// data->ray.drawStart++;
 		int texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
-		printf("Hi 2\n");
-        data->ray.texPos += data->ray.step;
-		printf("Hi 3\n");
-        int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
-		printf("Hi 4\n");
+		data->ray.texPos += data->ray.step;
+		int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
 		if (data->ray.side == 1)
 			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 		else
@@ -228,10 +219,10 @@ Helper function
 */
 void	fill_player_helper(t_data *data, int h, int w)
 {
-	data->maze.north_texture = "../../resources/textures/wall.xpm";
-	data->maze.south_texture = "../../resources/textures/wall.xpm";
-	data->maze.west_texture = "../../resources/textures/wall.xpm";
-	data->maze.east_texture = "../../resources/textures/wall.xpm";
+	// data->maze.north_texture = "../../resources/textures/wall.xpm";
+	// data->maze.south_texture = "../../resources/textures/wall.xpm";
+	// data->maze.west_texture = "../../resources/textures/wall.xpm";
+	// data->maze.east_texture = "../../resources/textures/wall.xpm";
 	if (data->maze.map[h][w] != '0' && data->maze.map[h][w] != '1')
 	{
 		data->player.x_pos = w + 0.5;
