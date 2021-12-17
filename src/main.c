@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 09:15:26 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 18:16:41 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:09:28 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 	fill_player(&data);
 	data.vars.mlx = mlx_init();
 	sprite_init(&data);
+	init_interface(&data);
 	data.vars.mlx_win = mlx_new_window(data.vars.mlx, 1000, 1000, "Cub3D");
 	data.vars.mlx_img = mlx_new_image(data.vars.mlx, 1000, 1000);
 	data.vars.addr = mlx_get_data_addr

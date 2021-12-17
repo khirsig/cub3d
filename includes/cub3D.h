@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 19:46:02 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 23:42:10 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ typedef struct s_data {
 	int			y_length;
 	int			read_length;
 	int			numEnemies;
+	int			*mouse_texture;
+	int			mouse_width;
+	int			mouse_height;
+	int			mouse_x;
+	int			mouse_y;
 }				t_data;
 
 /*
@@ -86,7 +91,12 @@ int		count_enemies(t_data *data);
 void	setup_enemies(t_data *data);
 int 	*load_texture(t_data *data, char *path);
 void	enemy_movement(t_data *data);
-
+/*
+** Interface
+*/
+void	init_interface(t_data *data);
+void	draw_weapon(t_data *data);
+void	draw_mouse(t_data *data);
 /*
 ** Parse color
 */

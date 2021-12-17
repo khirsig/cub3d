@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 10:26:04 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 22:56:17 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 # define RIGHT 2
 # define DOWN 3
 
+#include "weapon.h"
+
 typedef struct s_player {
+	t_weapon weapon;
 	double	x_pos;
 	double	y_pos;
 	double	dirX;

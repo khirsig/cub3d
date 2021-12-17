@@ -24,6 +24,8 @@ SRC =	src/main.c							\
 		src/enemy/count_enemy.c				\
 		src/enemy/enemy_move.c				\
 		src/minimap/minimap.c				\
+		src/interface/init_interface.c		\
+		src/interface/weapon.c				\
 		src/loop/loop.c						\
 		src/keyhook/keyhook_handler.c		\
 		src/keyhook/destroy.c				\
