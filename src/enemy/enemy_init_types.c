@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:14:20 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:17:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:49:18 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->type = RAT;
 	enemy->damage = 1;
 	enemy->health = 30;
-	enemy->move_speed = 0.0025;
+	enemy->move_speed = 0.00025;
 	enemy->min_distance = 10.0000;
 	enemy->idlestep = 5;
 	enemy->status = IDLE;
@@ -56,7 +56,7 @@ void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->type = GOBLIN;
 	enemy->damage = 1.5;
 	enemy->health = 50;
-	enemy->move_speed = 0.0020;
+	enemy->move_speed = 0.00020;
 	enemy->min_distance = 22.0000;
 	enemy->status = IDLE;
 	enemy->idlestep = 5;
