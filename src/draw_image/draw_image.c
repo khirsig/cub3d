@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 13:10:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 19:25:46 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 
 void	draw_ver_line(int i, t_data *data)
 {
-	int	j;
-
+	int		j;
+	void	*wall;
+	int		wid = 64;
+	int		hght = 64;
+	
+	
+	wall = mlx_xpm_file_to_image(data->vars.mlx, data->maze.north_texture, &wid, &hght);
 	j = 0;
 	while (j < data->ray.drawStart)
 	{
@@ -32,8 +37,11 @@ void	draw_ver_line(int i, t_data *data)
 	}
 	while (data->ray.drawStart <= data->ray.drawEnd)
 	{
+		int texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
+		data->ray.texPos += data->ray.step;
+		int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
 		if (data->ray.side == 1)
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00006DFF);
+			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 		else
 			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
 		data->ray.drawStart++;
@@ -150,6 +158,24 @@ void	calc_ray_dist(t_data *data)
 	data->ray.drawEnd = data->ray.lineHeight / 2 + 1000 / 2;
 	if (data->ray.drawEnd >= 1000)
 		data->ray.drawEnd = 1000 - 1;
+	//calculate value of wallX
+	if(data->ray.side == 0)
+		data->ray.wallX = data->player.y_pos + data->ray.perpWallDist * data->ray.rayDirY;
+	else
+		data->ray.wallX = data->player.x_pos + data->ray.perpWallDist * data->ray.rayDirX;
+	data->ray.wallX -= floor(data->ray.wallX);
+	//x coordinate on the texture
+	data->ray.texWidth = 64;
+	data->ray.texHeight = 64;
+	data->ray.texX = (int)(data->ray.wallX * (double)(data->ray.texWidth));
+	if(data->ray.side == 0 && data->ray.rayDirX > 0)
+		data->ray.texX = data->ray.texWidth - data->ray.texX - 1;
+	if(data->ray.side == 1 && data->ray.rayDirY < 0)
+		data->ray.texX = data->ray.texWidth - data->ray.texX - 1;
+	// How much to increase the texture coordinate per screen pixel
+	data->ray.step = 1.0 * data->ray.texHeight / data->ray.lineHeight;
+	// Starting texture coordinate
+	data->ray.texPos = (data->ray.drawStart - 1000 / 2 + data->ray.lineHeight / 2) * data->ray.step;
 }
 
 /*
@@ -165,6 +191,7 @@ void	draw_view(t_data *data)
 	int		i;
 
 	i = 0;
+	load_texture(data);
 	while (i < 1000)
 	{
 		calculate_ray_vector(data, i);
@@ -183,6 +210,10 @@ Helper function
 */
 void	fill_player_helper(t_data *data, int h, int w)
 {
+	// data->maze.north_texture = "../../resources/textures/wall.xpm";
+	// data->maze.south_texture = "../../resources/textures/wall.xpm";
+	// data->maze.west_texture = "../../resources/textures/wall.xpm";
+	// data->maze.east_texture = "../../resources/textures/wall.xpm";
 	if (data->maze.map[h][w] != '0' && data->maze.map[h][w] != '1')
 	{
 		data->player.x_pos = w + 0.5;

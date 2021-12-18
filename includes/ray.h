@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 15:20:11 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 13:09:56 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 15:12:26 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct s_ray {
 	int		lineHeight;
 	int		drawStart;
 	int		drawEnd;
+	double	wallX;
+	int		texX;
+	int		texWidth;
+	int		texHeight;
+	double	step;
+	double	texPos;
 	double	ZBuffer[1000];
 }				t_ray;
 #endif

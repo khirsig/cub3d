@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:55:57 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/17 14:42:03 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,6 @@ void	parse_color(char *str, int i, t_data *data);
 void	fill_player(t_data *data);
 void	draw_view(t_data *data);
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
+void	load_texture(t_data *data);
 
 #endif
