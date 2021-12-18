@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 16:11:30 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:23:02 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ int	gameloop(t_data *data)
 	player_rotation(data);
 	draw_view(data);
 	minimap(data);
+	modify_stamina(data);
+	enemy_anim_cycle(data);
+	enemy_actions(data);
+	enemy_sprite_casting(data);
+	display_vitals(data);
+	draw_weapon(data);
+	draw_mouse(data);
 	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win, data->vars.mlx_img, 0, 0);
 	return (0);
 }

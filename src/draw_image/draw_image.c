@@ -199,6 +199,7 @@ void	draw_view(t_data *data)
 		calculate_step_and_sideDist(data);
 		perform_DDA(data);
 		calc_ray_dist(data);
+		data->ray.ZBuffer[i] = data->ray.perpWallDist;
 		draw_ver_line(i, data);
 		i++;
 	}

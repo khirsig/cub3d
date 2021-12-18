@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 16:26:59 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 10:06:40 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,26 @@
 # define RIGHT 2
 # define DOWN 3
 
+#include "weapon.h"
+
 typedef struct s_player {
+	t_weapon weapon;
 	double	x_pos;
 	double	y_pos;
 	double	dirX;
 	double	dirY;
 	double	planeX;
 	double	planeY;
+	float	speed;
 	int		walk_left;
 	int		walk_right;
 	int		walk_up;
 	int		walk_down;
 	int		is_rotating;
 	int		rotation_direction;
+	int		is_sprinting;
+	float	health;
+	float	stamina;
+	float	damage;
 }				t_player;
 #endif
