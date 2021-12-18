@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:16:01 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:57:52 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	enemy_sprite_casting(t_data *data)
 		data->enemy[i].sprite.order = i;
 		data->enemy[i].sprite.distance = ((data->player.x_pos - data->enemy[i].sprite.x) * (data->player.x_pos - data->enemy[i].sprite.x)
 										+ (data->player.y_pos - data->enemy[i].sprite.y) * (data->player.y_pos - data->enemy[i].sprite.y));
+		data->mouse_on_enemy[i] = 0;
 		i++;
 	}
 	sort_sprites(data);
@@ -137,6 +138,8 @@ int	enemy_sprite_casting(t_data *data)
 					color = data->enemy[i].texture[(int)data->enemy[i].animstep][data->enemy[i].texWidth * data->enemy[i].sprite.texY + data->enemy[i].sprite.texX];
 					if (color != 0xFFFFFF)
 						my_mlx_pixel_put(&data->vars, data->enemy[i].sprite.stripe, y, color);
+					if (data->mouse_x == data->enemy[i].sprite.stripe && data->mouse_y == y)
+						data->mouse_on_enemy[i] = 1;
 					y++;
 				}
 			}

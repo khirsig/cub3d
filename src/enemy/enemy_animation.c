@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:20:30 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 10:18:53 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,18 @@ void	enemy_anim_cycle(t_data *data)
 			}
 			data->enemy[i].animstep += 0.10;
 		}
-		else
+		else if (data->enemy[i].status != DEAD)
 		{
 			data->enemy[i].status = IDLE;
 			data->enemy[i].animstep = 0.0000;
 			data->enemy[i].idlestep = 5.0000;
+		}
+		else
+		{
+			if (data->enemy[i].animstep <= 13.0000)
+				data->enemy[i].animstep = 15.0000;
+			else if (data->enemy[i].animstep >= 15.0000 && data->enemy[i].animstep <= 17.0000)
+				data->enemy[i].animstep += 0.10;
 		}
 		i++;
 	}

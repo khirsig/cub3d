@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 21:13:32 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 10:06:58 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define IDLE 0
 # define WALK 1
 # define COMBAT 2
+# define DEAD 3
 
 # include "sprite.h"
 

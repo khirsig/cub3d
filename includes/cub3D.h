@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:28:22 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:55:57 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_data {
 	int			mouse_rotation;
 	int			mouse_width;
 	int			mouse_height;
+	int			*mouse_on_enemy;
 	int			mouse_x;
 	int			mouse_y;
 	int			**mouse_texture;
