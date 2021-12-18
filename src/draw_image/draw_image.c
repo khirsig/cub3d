@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 19:25:46 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:42:58 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,6 @@ void	draw_view(t_data *data)
 	int		i;
 
 	i = 0;
-	load_texture(data);
 	while (i < 1000)
 	{
 		calculate_ray_vector(data, i);

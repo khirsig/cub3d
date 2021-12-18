@@ -6,11 +6,36 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/10 17:58:29 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:48:16 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+/*
+Malloc memory and save clean string
+*/
+
+char	*get_clean_strings(char *str)
+{
+	int		i;
+	int		j;
+	char	*ret;
+
+	i = 0;
+	j = 0;
+	ret = malloc(ft_strlen(str) + 1);
+	while (str[i] == ' ')
+		i++;
+	while (str[i] != '\n')
+	{
+		ret[j] = str[i];
+		i++;
+		j++;
+	}
+	ret[j] = 0;
+	return (ret);
+}
 
 /*
 Parses information for the texture.
@@ -19,13 +44,13 @@ Parses information for the texture.
 void	parse_texture(char *str, int i, t_data *data)
 {
 	if (str[i] == 'N' && str[i + 1] == 'O')
-		data->maze.north_texture = &str[i + 2];
+		data->maze.north_texture = get_clean_strings(&str[i + 2]);
 	else if (str[i] == 'S' && str[i + 1] == 'O')
-		data->maze.south_texture = &str[i + 2];
+		data->maze.south_texture = get_clean_strings(&str[i + 2]);
 	else if (str[i] == 'W' && str[i + 1] == 'E')
-		data->maze.west_texture = &str[i + 2];
+		data->maze.west_texture = get_clean_strings(&str[i + 2]);
 	else if (str[i] == 'E' && str[i + 1] == 'A')
-		data->maze.east_texture = &str[i + 2];
+		data->maze.east_texture = get_clean_strings(&str[i + 2]);
 	else
 		ft_putstr_fd("Error\n", 2);
 }
@@ -34,7 +59,7 @@ void	parse_texture(char *str, int i, t_data *data)
 Checks input of new line and parses relevant information.
 */
 
-int	check_next_line(char *str, t_data *data)
+int	check_line(char *str, t_data *data)
 {
 	int	i;
 
@@ -81,7 +106,7 @@ void	check_parsing(t_data *data)
 2) Checks for wrong input values at the end.
 */
 
-int	parse_part_1(int fd, t_data *data)
+void	parse_part_1(t_data *data)
 {
 	int		lines;
 	int		count;
@@ -90,16 +115,18 @@ int	parse_part_1(int fd, t_data *data)
 
 	lines = 0;
 	count = 0;
+	if (data->file == -1)
+		ft_putstr_fd("Error\n", 2);
 	while (1)
 	{
-		str = get_next_line(fd);
+		str = get_next_line(data->file);
 		if (str == NULL || count == 6)
 		{
 			if (count < 6)
 				ft_putstr_fd("Error\n", 2);
 			break ;
 		}
-		i = check_next_line(str, data);
+		i = check_line(str, data);
 		if (i == 0)
 			ft_putstr_fd("Error\n", 2);
 		else if (i == 1 || i == 2)
@@ -107,5 +134,5 @@ int	parse_part_1(int fd, t_data *data)
 		lines++;
 	}
 	check_parsing(data);
-	return (lines);
+	data->read_length = lines;
 }

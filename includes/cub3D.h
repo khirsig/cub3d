@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 12:13:49 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 17:31:33 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	draw_mouse(t_data *data);
 /*
 ** Parse color
 */
-int		parse_part_1(int fd, t_data *data);
+void	parse_part_1(t_data *data);
 void	parse_color(char *str, int i, t_data *data);
 
 /*
