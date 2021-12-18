@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/10 18:00:00 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/18 20:00:06 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,25 @@ Parses color information for the floor and ceiling.
 
 void	parse_color(char *str, int i, t_data *data)
 {
+	int		r;
+	int		g;
+	int		b;
+	char	c;
+
+	c = str[i];
 	check_color_str(&str[i + 1]);
-	if (str[i] == 'F')
-	{
-		data->maze.floor.r = ft_atoi(&str[i + 1]);
-		while (str[i] != ',')
-			i++;
-		data->maze.floor.g = ft_atoi(&str[i + 1]);
+	r = ft_atoi(&str[i + 1]);
+	while (str[i] != ',')
 		i++;
-		while (str[i] != ',')
-			i++;
-		data->maze.floor.b = ft_atoi(&str[i + 1]);
-		data->maze.floor.check = 1;
-	}
+	g = ft_atoi(&str[i + 1]);
+	i++;
+	while (str[i] != ',')
+		i++;
+	b = ft_atoi(&str[i + 1]);
+	if (r > 255 || g > 255 || b > 255)
+		ft_putstr_fd("Error\n", 2);
+	if (c == 'F')
+		data->maze.floor_color = 65536 * r + 256 * g + b;
 	else
-	{
-		data->maze.ceiling.r = ft_atoi(&str[i + 1]);
-		while (str[i] != ',')
-			i++;
-		data->maze.ceiling.g = ft_atoi(&str[i + 1]);
-		i++;
-		while (str[i] != ',')
-			i++;
-		data->maze.ceiling.b = ft_atoi(&str[i + 1]);
-		data->maze.ceiling.check = 1;
-	}
+		data->maze.ceiling_color = 65536 * r + 256 * g + b;
 }

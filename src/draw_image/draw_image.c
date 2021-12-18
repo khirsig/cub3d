@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/17 19:25:46 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/18 19:47:48 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_ver_line(int i, t_data *data)
 	j = 0;
 	while (j < data->ray.drawStart)
 	{
-		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		my_mlx_pixel_put(&data->vars, i, j, data->maze.floor_color);
 		j++;
 	}
 	while (data->ray.drawStart <= data->ray.drawEnd)
@@ -49,7 +49,7 @@ void	draw_ver_line(int i, t_data *data)
 	j = data->ray.drawEnd + 1;
 	while (j < 1000)
 	{
-		my_mlx_pixel_put(&data->vars, i, j, 0x00000000);
+		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
 		j++;
 	}
 }
@@ -191,7 +191,6 @@ void	draw_view(t_data *data)
 	int		i;
 
 	i = 0;
-	load_texture(data);
 	while (i < 1000)
 	{
 		calculate_ray_vector(data, i);

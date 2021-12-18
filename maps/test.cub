@@ -1,16 +1,14 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+NO ./resources/textures/wall.xpm
+SO ./resources/textures/wall.xpm
+WE ./resources/textures/wall.xpm
+EA ./resources/textures/wall.xpm
 
 
 
 
 
-F 220,100    ,      1
-C 225,30       ,        0
-
-
+F 228,109    ,      101
+C 228,109    ,      101
 
 
 
