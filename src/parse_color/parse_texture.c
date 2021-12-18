@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/18 17:48:16 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/18 19:38:25 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,26 +82,6 @@ int	check_line(char *str, t_data *data)
 }
 
 /*
-1) Checks if color values are between 0 and 255.
-2) Checks if ceiling and floor colors are provided.
-*/
-
-void	check_parsing(t_data *data)
-{
-	if (data->maze.floor.r > 255
-		|| data->maze.floor.b > 255
-		|| data->maze.floor.g > 255)
-		ft_putstr_fd("Error\n", 2);
-	if (data->maze.ceiling.r > 255
-		||data->maze.ceiling.b > 255
-		||data->maze.ceiling.g > 255)
-		ft_putstr_fd("Error\n", 2);
-	if (data->maze.floor.check == 0
-		||data->maze.ceiling.check == 0)
-		ft_putstr_fd("Error\n", 2);
-}
-
-/*
 1) Reads new lines until the four paths and the two colors are parsed.
 2) Checks for wrong input values at the end.
 */
@@ -133,6 +113,5 @@ void	parse_part_1(t_data *data)
 			count++;
 		lines++;
 	}
-	check_parsing(data);
 	data->read_length = lines;
 }
