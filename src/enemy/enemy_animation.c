@@ -6,13 +6,13 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 10:18:53 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 12:12:49 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int 	*load_texture(t_data *data, char *path)
+int 	*load_sprite(t_data *data, char *path)
 {
 	void *img;
 	int *texture;
