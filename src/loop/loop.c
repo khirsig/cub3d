@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 23:42:23 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:23:02 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	gameloop(t_data *data)
 	draw_view(data);
 	minimap(data);
 	modify_stamina(data);
-	cycle_animstep(data);
-	enemy_movement(data);
-	sprite_casting(data);
+	enemy_anim_cycle(data);
+	enemy_actions(data);
+	enemy_sprite_casting(data);
 	display_vitals(data);
 	draw_weapon(data);
 	draw_mouse(data);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_move.c                                       :+:      :+:    :+:   */
+/*   enemy_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:40:23 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 21:19:56 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:21:44 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static void	enemy_check_pos(t_data *data)
+static void	enemy_update_map(t_data *data)
 {
 	int i;
 
@@ -34,7 +34,7 @@ static void	enemy_check_pos(t_data *data)
 	}
 }
 
-void	enemy_movement(t_data *data)
+void	enemy_actions(t_data *data)
 {
 	int i;
 
@@ -61,5 +61,5 @@ void	enemy_movement(t_data *data)
 			data->enemy[i].status = IDLE;
 		i++;
 	}
-	enemy_check_pos(data);
+	enemy_update_map(data);
 }

@@ -1,42 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_enemy.c                                      :+:      :+:    :+:   */
+/*   enemy_init_types.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 23:29:01 by khirsig          ###   ########.fr       */
+/*   Created: 2021/12/18 09:14:20 by khirsig           #+#    #+#             */
+/*   Updated: 2021/12/18 09:17:58 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	count_enemies(t_data *data)
+void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 {
-	int	count;
-	int	x;
-	int	y;
-
-	y = 0;
-	count = 0;
-	while (data->maze.map[y] != NULL)
-	{
-		x = 0;
-		while (data->maze.map[y][x] != '\0')
-		{
-			if (data->maze.map[y][x] == 'R' || data->maze.map[y][x] == 'G')
-				count++;
-			x++;
-		}
-		y++;
-	}
-	return (count);
-}
-
-static void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
-{
-	enemy->attack_speed = 1;
+	enemy->attack_speed = 1.5;
 	enemy->type = RAT;
 	enemy->damage = 1;
 	enemy->health = 30;
@@ -72,7 +50,7 @@ static void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->texture[14] = load_texture(data, "./resources/enemy/rat00.xpm");
 }
 
-static void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
+void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 {
 	enemy->attack_speed = 1;
 	enemy->type = GOBLIN;
@@ -108,33 +86,4 @@ static void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->texture[12] = load_texture(data,"./resources/enemy/goblin_09.xpm");
 	enemy->texture[13] = load_texture(data,"./resources/enemy/goblin_00.xpm");
 	enemy->texture[14] = load_texture(data,"./resources/enemy/goblin_00.xpm");
-}
-
-void	setup_enemies(t_data *data)
-{
-	int	x;
-	int y;
-	int	numEnemy;
-
-	y = 0;
-	numEnemy = 0;
-	while (data->maze.map[y] != NULL)
-	{
-		x = 0;
-		while (data->maze.map[y][x] != '\0')
-		{
-			if (data->maze.map[y][x] == 'R')
-			{
-				setup_rat(data, &data->enemy[numEnemy], x, y);
-				numEnemy++;
-			}
-			if (data->maze.map[y][x] == 'G')
-			{
-				setup_goblin(data, &data->enemy[numEnemy], x, y);
-				numEnemy++;
-			}
-			x++;
-		}
-		y++;
-	}
 }

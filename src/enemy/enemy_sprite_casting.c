@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   casting.c                                          :+:      :+:    :+:   */
+/*   enemy_sprite_casting.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 23:06:44 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:16:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	sort_sprites(t_data *data)
 	}
 }
 
-int	sprite_casting(t_data *data)
+int	enemy_sprite_casting(t_data *data)
 {
 	int color;
 	int vMoveScreen;

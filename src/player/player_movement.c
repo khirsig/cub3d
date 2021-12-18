@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 19:42:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:27:03 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	player_rotation(t_data *data)
 {
 	double temp;
 
-	if (data->player.is_rotating == 1 && data->player.rotation_direction == LEFT)
+	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == LEFT)
 	{
 		temp = data->player.dirX;
 		data->player.dirX = data->player.dirX * cos(0.05) - data->player.dirY * sin(0.05);
@@ -60,7 +60,7 @@ int	player_rotation(t_data *data)
 		data->player.planeX = data->player.planeX * cos(0.05) - data->player.planeY * sin(0.05);
 		data->player.planeY = temp * sin(0.05) + data->player.planeY * cos(0.05);
 	}
-	if (data->player.is_rotating == 1 && data->player.rotation_direction == RIGHT)
+	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == RIGHT)
 	{
 		temp = data->player.dirX;
 		data->player.dirX = data->player.dirX * cos(-0.05) - data->player.dirY * sin(-0.05);
@@ -68,54 +68,6 @@ int	player_rotation(t_data *data)
 		temp = data->player.planeX;
 		data->player.planeX = data->player.planeX * cos(-0.05) - data->player.planeY * sin(-0.05);
 		data->player.planeY = temp * sin(-0.05) + data->player.planeY * cos(-0.05);
-	}
-	return (0);
-}
-
-int	player_release(int keystroke, t_data *data)
-{
-	if (keystroke == 257 && data->player.is_sprinting == 1)
-	{
-		data->player.is_sprinting = 0;
-		data->player.speed = 0.03;
-	}
-	if (keystroke == 2)
-		data->player.walk_right = 0;
-	if (keystroke == 0)
-		data->player.walk_left = 0;
-	if (keystroke == 13)
-		data->player.walk_up = 0;
-	if (keystroke == 1)
-		data->player.walk_down = 0;
-	if (keystroke == 123 || keystroke == 124)
-		data->player.is_rotating = 0;
-	return (0);
-}
-
-int	player_press(int keystroke, t_data *data)
-{
-	if (keystroke == 2)
-		data->player.walk_right = 1;
-	if (keystroke == 0)
-		data->player.walk_left = 1;
-	if (keystroke == 13)
-		data->player.walk_up = 1;
-	if (keystroke == 1)
-		data->player.walk_down = 1;
-	if (keystroke == 257 && data->player.stamina > 0)
-	{
-		data->player.is_sprinting = 1;
-		data->player.speed = 0.10;
-	}
-	if (keystroke == 124)
-	{
-		data->player.is_rotating = 1;
-		data->player.rotation_direction = LEFT;
-	}
-	if (keystroke == 123)
-	{
-		data->player.is_rotating = 1;
-		data->player.rotation_direction = RIGHT;
 	}
 	return (0);
 }

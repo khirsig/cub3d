@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_init.c                                      :+:      :+:    :+:   */
+/*   enemy_animation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 21:29:11 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:20:30 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int 	*load_texture(t_data *data, char *path)
 	return (texture);
 }
 
-void	cycle_animstep(t_data *data)
+void	enemy_anim_cycle(t_data *data)
 {
 	int i;
 
@@ -62,7 +62,7 @@ void	cycle_animstep(t_data *data)
 		else if (data->enemy[i].status == COMBAT && data->enemy[i].idlestep >= 5.0000)
 		{
 			if ((int) data->enemy[i].animstep == 10)
-				data->player.health -= data->enemy[i].damage;
+				data->player.health -= data->enemy[i].damage * 0.50;
 			if (data->enemy[i].animstep >= 12.0000)
 			{
 				data->enemy[i].idlestep = 0.0000;
@@ -78,12 +78,4 @@ void	cycle_animstep(t_data *data)
 		}
 		i++;
 	}
-}
-
-int	sprite_init(t_data *data)
-{
-	data->numEnemies = count_enemies(data);
-	data->enemy = malloc(sizeof(t_enemy) * data->numEnemies);
-	setup_enemies(data);
-	return (0);
 }
