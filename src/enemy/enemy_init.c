@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:15:07 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 09:56:36 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	enemy_init(t_data *data)
 {
 	data->numEnemies = count_enemies(data);
 	data->enemy = malloc(sizeof(t_enemy) * data->numEnemies);
+	data->mouse_on_enemy = malloc(sizeof(int *) * data->numEnemies);
 	enemy_setup(data);
 	return (0);
 }

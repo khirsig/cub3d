@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 22:56:17 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 10:06:40 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ typedef struct s_player {
 	int		is_sprinting;
 	float	health;
 	float	stamina;
+	float	damage;
 }				t_player;
 #endif

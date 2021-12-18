@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:14:20 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:49:18 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/18 10:28:35 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->sprite.y = y + 0.50;
 	enemy->last_x = x;
 	enemy->last_y = y;
-	enemy->texture = malloc(sizeof(int *) * 15);
+	enemy->texture = malloc(sizeof(int *) * 19);
 	enemy->texture[0] = load_texture(data, "./resources/enemy/rat00.xpm");
 	enemy->texture[1] = load_texture(data, "./resources/enemy/rat01.xpm");
 	enemy->texture[2] = load_texture(data, "./resources/enemy/rat02.xpm");
@@ -48,6 +48,10 @@ void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->texture[12] = load_texture(data, "./resources/enemy/rat09.xpm");
 	enemy->texture[13] = load_texture(data, "./resources/enemy/rat00.xpm");
 	enemy->texture[14] = load_texture(data, "./resources/enemy/rat00.xpm");
+	enemy->texture[15] = load_texture(data, "./resources/enemy/ratd00.xpm");
+	enemy->texture[16] = load_texture(data, "./resources/enemy/ratd01.xpm");
+	enemy->texture[17] = load_texture(data, "./resources/enemy/ratd02.xpm");
+	enemy->texture[18] = load_texture(data, "./resources/enemy/ratd02.xpm");
 }
 
 void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
@@ -70,7 +74,7 @@ void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->sprite.y = y + 0.50;
 	enemy->last_x = x;
 	enemy->last_y = y;
-	enemy->texture = malloc(sizeof(int *) * 15);
+	enemy->texture = malloc(sizeof(int *) * 19);
 	enemy->texture[0] = load_texture(data, "./resources/enemy/goblin_00.xpm");
 	enemy->texture[1] = load_texture(data, "./resources/enemy/goblin_01.xpm");
 	enemy->texture[2] = load_texture(data, "./resources/enemy/goblin_02.xpm");
@@ -86,4 +90,8 @@ void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->texture[12] = load_texture(data,"./resources/enemy/goblin_09.xpm");
 	enemy->texture[13] = load_texture(data,"./resources/enemy/goblin_00.xpm");
 	enemy->texture[14] = load_texture(data,"./resources/enemy/goblin_00.xpm");
+	enemy->texture[15] = load_texture(data,"./resources/enemy/goblind_00.xpm");
+	enemy->texture[16] = load_texture(data,"./resources/enemy/goblind_01.xpm");
+	enemy->texture[17] = load_texture(data,"./resources/enemy/goblind_02.xpm");
+	enemy->texture[18] = load_texture(data,"./resources/enemy/goblind_02.xpm");
 }
