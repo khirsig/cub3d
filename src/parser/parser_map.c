@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 11:43:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 12:11:47 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,13 @@ void	parser_map(t_data *data, char *file)
 	if (data->y_length <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (0);
+		// return (0);
 	}
 	data->x_length = parser_map_x_length(data, file);
 	if (data->x_length <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (0);
+		// return (0);
 	}
 	temp = malloc(sizeof(char *) * data->y_length + 1);
 	temp[data->y_length] = NULL;
@@ -91,16 +91,15 @@ void	parser_map(t_data *data, char *file)
 		if (temp[index][0] == '\n')
 		{
 			ft_putstr_fd("Error\n", 2);
-			return (0);
+			// return (0);
 		}
 		index++;
 	}
 	if (finalize_map(data, temp) == 0)
 	{
 		ft_putstr_fd("Error\n", 2);
-		return (0);
+		// return (0);
 	}
 	// free(temp);
 	parser_map_error(data, data->maze.map);
-	return (1);
 }

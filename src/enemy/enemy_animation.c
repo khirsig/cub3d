@@ -3,14 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_animation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 11:10:54 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 12:17:04 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+static void	enemy_death(t_data *data, int i)
+{
+	data->maze.map[(int)data->enemy[i].sprite.y][(int)data->enemy[i].sprite.x] = '0';
+	if (data->enemy[i].type == GOBLIN)
+	{
+		data->enemy[i].texHeight = 68;
+		data->enemy[i].texWidth = 115;
+	}
+	if (data->enemy[i].type == RAT)
+	{
+		data->enemy[i].texHeight = 53;
+		data->enemy[i].texWidth = 77;
+	}
+}
 
 void	enemy_anim_cycle(t_data *data)
 {
@@ -45,7 +60,10 @@ void	enemy_anim_cycle(t_data *data)
 		else
 		{
 			if (data->enemy[i].animstep <= 13.0000)
+			{
+				enemy_death(data, i);	
 				data->enemy[i].animstep = 15.0000;
+			}
 			else if (data->enemy[i].animstep >= 15.0000 && data->enemy[i].animstep <= 17.0000)
 				data->enemy[i].animstep += 0.10;
 		}

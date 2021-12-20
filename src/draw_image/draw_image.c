@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 11:22:21 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 12:15:25 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ Helper function
 */
 void	fill_player_helper(t_data *data, int h, int w)
 {
-	if (data->maze.map[h][w] == 'N' && data->maze.map[h][w] != 'S' && data->maze.map[h][w] != 'E' && data->maze.map[h][w] != 'W')
+	if (data->maze.map[h][w] == 'N' || data->maze.map[h][w] == 'S' || data->maze.map[h][w] == 'E' || data->maze.map[h][w] == 'W')
 	{
 		data->player.x_pos = w + 0.5;
 		data->player.y_pos = h + 0.5;

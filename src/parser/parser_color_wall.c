@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_texture.c                                    :+:      :+:    :+:   */
+/*   parser_color_wall.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 11:40:27 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 12:12:15 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	check_line(char *str, t_data *data)
 	}
 	else if (str[i] == 'F' || str[i] == 'C')
 	{
-		parse_color(str, i, data);
+		parser_color(str, i, data);
 		return (2);
 	}
 	else if (str[i] == '\n')

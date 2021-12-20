@@ -30,6 +30,10 @@ SRC =	src/main.c									\
 		src/enemy/enemy_sprite_casting.c			\
 		src/interface/interface_cursor.c			\
 		src/interface/interface_minimap.c			\
+		src/keyhook/keyhook_handler.c				\
+		src/keyhook/keyhook_destroy.c				\
+		src/keyhook/keyhook_key.c					\
+		src/keyhook/keyhook_mouse.c					\
 		src/loop/loop.c								\
 		src/player/player_movement.c				\
 		src/player/player_modify_vitals.c			\
