@@ -24,6 +24,7 @@ SRC =	src/main.c									\
 		src/initializer/init_player.c				\
 		src/draw_image/draw_image.c					\
 		src/draw_image/get_textures.c				\
+		src/draw_image/draw_vert_line.c				\
 		src/enemy/enemy_actions.c					\
 		src/enemy/enemy_animation.c					\
 		src/enemy/enemy_init_types.c				\

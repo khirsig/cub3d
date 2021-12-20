@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:06:58 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 11:24:55 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 17:56:11 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	*load_texture(t_data *data, char *path)
 {
-	void *img;
-	int *texture;
-	int *addr;
-	int endian;
-	int bits_per_pixel;
-	int line_length;
-	int	img_width;
-	int img_height;
-	int x;
-	int y;
+	void	*img;
+	int		*texture;
+	int		*addr;
+	int		endian;
+	int		bits_per_pixel;
+	int		line_length;
+	int		img_width;
+	int		img_height;
+	int		x;
+	int		y;
 
 	img = mlx_xpm_file_to_image(data->vars.mlx, path, &img_width, &img_height);
 	if (img == NULL)
@@ -48,6 +48,7 @@ int	*load_texture(t_data *data, char *path)
 	free(addr);
 	return (texture);
 }
+
 void	init_wall(t_data *data)
 {
 	data->vars.texture = malloc(sizeof(int *) * 4);
