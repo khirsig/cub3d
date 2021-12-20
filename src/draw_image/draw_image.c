@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 15:11:28 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 15:16:58 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ void	draw_wall(t_data *data, int i)
 	if (data->ray.side == 0)
 	{
 		if (data->ray.rayDirX < 0)
-			color = data->vars.texture[3][data->ray.texHeight * texY + data->ray.texX];
-		else
 			color = data->vars.texture[2][data->ray.texHeight * texY + data->ray.texX];
+		else
+			color = data->vars.texture[3][data->ray.texHeight * texY + data->ray.texX];
 	}
 	else
 	{
 		if (data->ray.rayDirY < 0)
-			color = data->vars.texture[1][data->ray.texHeight * texY + data->ray.texX];
-		else
 			color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
+		else
+			color = data->vars.texture[1][data->ray.texHeight * texY + data->ray.texX];
 	}
 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 }
