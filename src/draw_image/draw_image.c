@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 15:03:54 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/20 15:11:28 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	draw_wall(t_data *data, int i)
 {
 	int	texY;
 	int	color;
-	
+
 	texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
 	data->ray.texPos += data->ray.step;
 	color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
@@ -35,7 +35,7 @@ void	draw_wall(t_data *data, int i)
 		else
 			color = data->vars.texture[2][data->ray.texHeight * texY + data->ray.texX];
 	}
-	else 
+	else
 	{
 		if (data->ray.rayDirY < 0)
 			color = data->vars.texture[1][data->ray.texHeight * texY + data->ray.texX];
@@ -223,12 +223,12 @@ void	fill_player_helper(t_data *data, int h, int w)
 			if (data->maze.map[h][w] == 'N')
 			{
 				data->player.planeX = -0.66;
-				data->player.dirY = 1;
+				data->player.dirY = -1;
 			}
 			else
 			{
 				data->player.planeX = 0.66;
-				data->player.dirY = -1;
+				data->player.dirY = 1;
 			}
 		}
 		else
