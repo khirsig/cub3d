@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_vitals.c                                   :+:      :+:    :+:   */
+/*   player_display_vitals.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:49:34 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 20:17:54 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 09:54:57 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int		display_vitals(t_data *data)
 
 	hp = data->player.health * 2;
 	stam = data->player.stamina * 2;
-	y = 730;
-	while (y < 775)
+	y = 930;
+	while (y < 975)
 	{
 		x = 30;
 		while (x < 230)
 		{
-			if (x < hp + 30 && y < 750)
+			if (x < hp + 30 && y < 950)
 				my_mlx_pixel_put(&data->vars, x, y, 0x00FE0000);
-			else if (y < 750)
+			else if (y < 950)
 				my_mlx_pixel_put(&data->vars, x, y, 0x00505050);
-			if (x < stam + 30 && y >= 755)
+			if (x < stam + 30 && y >= 955)
 				my_mlx_pixel_put(&data->vars, x, y, 0x00009B0E);
-			else if (y >= 755)
+			else if (y >= 955)
 				my_mlx_pixel_put(&data->vars, x, y, 0x00505050);
 			x++;
 		}

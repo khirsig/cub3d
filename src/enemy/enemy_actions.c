@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:40:23 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 10:30:09 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 10:06:37 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,6 @@ static void	enemy_update_map(t_data *data)
 	}
 }
 
-static void	enemy_death(t_data *data, int i)
-{
-	data->enemy[i].status = DEAD;
-	data->maze.map[(int)data->enemy[i].sprite.y][(int)data->enemy[i].sprite.x] = '0';
-	if (data->enemy[i].type == GOBLIN)
-	{
-		data->enemy[i].texHeight = 68;
-		data->enemy[i].texWidth = 115;
-	}
-	if (data->enemy[i].type == RAT)
-	{
-		data->enemy[i].texHeight = 53;
-		data->enemy[i].texWidth = 77;
-	}
-}
-
 void	enemy_actions(t_data *data)
 {
 	int i;
@@ -58,7 +42,7 @@ void	enemy_actions(t_data *data)
 	while (i < data->numEnemies)
 	{
 		if (data->enemy[i].health <= 0.000)
-			enemy_death(data, i);
+			data->enemy[i].status = DEAD;
 		if (data->enemy[i].sprite.distance <= 100.0000 && data->enemy[i].sprite.distance > data->enemy[i].min_distance && data->enemy[i].status != COMBAT && data->enemy[i].status != DEAD)
 		{
 			data->enemy[i].status = WALK;
