@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 12:15:25 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/20 15:03:54 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,38 +20,43 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+void	draw_wall(t_data *data, int i)
+{
+	int	texY;
+	int	color;
+	
+	texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
+	data->ray.texPos += data->ray.step;
+	color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
+	if (data->ray.side == 0)
+	{
+		if (data->ray.rayDirX < 0)
+			color = data->vars.texture[3][data->ray.texHeight * texY + data->ray.texX];
+		else
+			color = data->vars.texture[2][data->ray.texHeight * texY + data->ray.texX];
+	}
+	else 
+	{
+		if (data->ray.rayDirY < 0)
+			color = data->vars.texture[1][data->ray.texHeight * texY + data->ray.texX];
+		else
+			color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
+	}
+	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
+}
+
 void	draw_ver_line(int i, t_data *data)
 {
-	int		j;
-	// void	*wall;
-	// int		wid = 64;
-	// int		hght = 64;
+	int	j;
 
-
-	// wall = mlx_xpm_file_to_image(data->vars.mlx, data->maze.north_texture, &wid, &hght);
 	j = 0;
-	while (j < data->ray.drawStart)
-	{
+	while (j++ < data->ray.drawStart)
 		my_mlx_pixel_put(&data->vars, i, j, data->maze.floor_color);
-		j++;
-	}
-	while (data->ray.drawStart <= data->ray.drawEnd)
-	{
-		int texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
-		data->ray.texPos += data->ray.step;
-		int color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
-		if (data->ray.side == 1)
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
-		else
-			my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, 0x00004CB1);
-		data->ray.drawStart++;
-	}
+	while (data->ray.drawStart++ <= data->ray.drawEnd)
+		draw_wall(data, i);
 	j = data->ray.drawEnd + 1;
-	while (j < 1000)
-	{
+	while (j++ < 1000)
 		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
-		j++;
-	}
 }
 
 /*
