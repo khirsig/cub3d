@@ -6,45 +6,11 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 12:12:49 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 11:10:54 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-int 	*load_sprite(t_data *data, char *path)
-{
-	void *img;
-	int *texture;
-	int *addr;
-	int endian;
-	int bits_per_pixel;
-	int line_length;
-	int	img_width;
-	int img_height;
-	int x;
-	int y;
-
-	img = mlx_xpm_file_to_image(data->vars.mlx, path, &img_width, &img_height);
-	if (img == NULL)
-		printf("Error\n");
-	addr = (int *)mlx_get_data_addr(img, &bits_per_pixel, &line_length, &endian);
-	y = 0;
-	texture = (int *) malloc(sizeof(int) * (img_height * img_width));
-	while (y < img_height)
-	{
-		x = 0;
-		while (x < img_width)
-		{
-			texture[img_width * y + x] = addr[img_width * y + x];
-			x++;
-		}
-		y++;
-	}
-	free(img);
-	free(addr);
-	return (texture);
-}
 
 void	enemy_anim_cycle(t_data *data)
 {

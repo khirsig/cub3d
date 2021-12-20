@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/18 20:00:06 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/20 11:41:00 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_color_str_char(char *str)
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ',' && str[i] != ' ')
 			ft_putstr_fd("Error\n", 2);
 		i++;
-	}	
+	}
 }
 
 /*
@@ -66,7 +66,7 @@ void	check_color_str(char *str)
 Parses color information for the floor and ceiling.
 */
 
-void	parse_color(char *str, int i, t_data *data)
+void	parser_color(char *str, int i, t_data *data)
 {
 	int		r;
 	int		g;

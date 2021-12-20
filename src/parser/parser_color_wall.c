@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_texture.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/18 19:38:25 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/20 11:40:27 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	check_line(char *str, t_data *data)
 2) Checks for wrong input values at the end.
 */
 
-void	parse_part_1(t_data *data)
+void	parser_color_wall(t_data *data)
 {
 	int		lines;
 	int		count;

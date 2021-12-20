@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vars.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 13:14:04 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/20 11:51:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ typedef struct s_vars {
 	void	*mlx;
 	void	*mlx_win;
 	void	*mlx_img;
+	int		win_width;
+	int		win_height;
 	char	*addr;
 	int		**texture;
 	int		bits_per_pixel;

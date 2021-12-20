@@ -11,31 +11,29 @@ LFLAGS = $(MLXPATH) -framework OpenGL -framework AppKit $(LIBPATH)
 OBJDIR = ./objs/
 OBJECTS = $(OBJDIR)/*.o
 
-SRC =	src/main.c							\
-		src/parse_map/error_map.c			\
-		src/parse_map/parse_map.c			\
-		src/parse_map/map_length.c			\
-		src/player/player_movement.c		\
-		src/player/player_init.c			\
-		src/player/player_display_vitals.c	\
-		src/player/player_modify_vitals.c	\
-		src/enemy/enemy_actions.c			\
-		src/enemy/enemy_sprite_casting.c	\
-		src/enemy/enemy_init.c				\
-		src/enemy/enemy_animation.c			\
-		src/enemy/enemy_init_types.c		\
-		src/minimap/minimap.c				\
-		src/interface/interface_init.c		\
-		src/interface/interface_cursor.c	\
-		src/loop/loop.c						\
-		src/keyhook/keyhook_handler.c		\
-		src/keyhook/keyhook_destroy.c		\
-		src/keyhook/keyhook_key.c			\
-		src/keyhook/keyhook_mouse.c			\
-		src/parse_color/parse_color.c		\
-		src/parse_color/parse_texture.c		\
-		src/draw_image/draw_image.c			\
-		src/draw_image/get_textures.c		\
+SRC =	src/main.c									\
+		src/parser/parser.c							\
+		src/parser/parser_map.c						\
+		src/parser/parser_map_length.c				\
+		src/parser/parser_map_error.c				\
+		src/parser/parser_color.c					\
+		src/parser/parser_color_wall.c				\
+		src/initializer/initializer.c				\
+		src/initializer/init_enemy.c				\
+		src/initializer/init_interface.c			\
+		src/initializer/init_player.c				\
+		src/draw_image/draw_image.c					\
+		src/draw_image/get_textures.c				\
+		src/enemy/enemy_actions.c					\
+		src/enemy/enemy_animation.c					\
+		src/enemy/enemy_init_types.c				\
+		src/enemy/enemy_sprite_casting.c			\
+		src/interface/interface_cursor.c			\
+		src/interface/interface_minimap.c			\
+		src/loop/loop.c								\
+		src/player/player_movement.c				\
+		src/player/player_modify_vitals.c			\
+		src/player/player_display_vitals.c			\
 
 all: $(NAME)
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemy_init.c                                       :+:      :+:    :+:   */
+/*   init_enemy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:56:36 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 11:27:03 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,10 @@ void	enemy_setup(t_data *data)
 	}
 }
 
-int	enemy_init(t_data *data)
+void	init_enemy(t_data *data)
 {
 	data->numEnemies = count_enemies(data);
 	data->enemy = malloc(sizeof(t_enemy) * data->numEnemies);
 	data->mouse_on_enemy = malloc(sizeof(int *) * data->numEnemies);
 	enemy_setup(data);
-	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_map.c                                        :+:      :+:    :+:   */
+/*   parser_map_error.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 09:13:23 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/13 08:52:12 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 11:42:05 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	is_error_map(t_data *data, char **map, int x, int y)
 	return (1);
 }
 
-int	error_map(t_data *data, char **map)
+int	parser_map_error(t_data *data, char **map)
 {
 	int	x;
 	int	y;

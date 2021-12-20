@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_length.c                                       :+:      :+:    :+:   */
+/*   parser_map_length.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:30:57 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/11 15:15:51 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 11:42:16 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	map_x_length(t_data *data, char *file)
+int	parser_map_x_length(t_data *data, char *file)
 {
 	char	*str;
 	int		highest_count;
@@ -53,7 +53,7 @@ int	map_x_length(t_data *data, char *file)
 	return (highest_count);
 }
 
-int	map_y_length(t_data *data, char *file)
+int	parser_map_y_length(t_data *data, char *file)
 {
 	char	*str;
 	int		count;

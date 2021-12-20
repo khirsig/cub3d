@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:57:52 by khirsig          ###   ########.fr       */
+/*   Updated: 2021/12/20 10:58:34 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,9 +137,11 @@ int	enemy_sprite_casting(t_data *data)
 					data->enemy[i].sprite.texY = ((d * data->enemy[i].texHeight) / data->enemy[i].sprite.height) / 256;
 					color = data->enemy[i].texture[(int)data->enemy[i].animstep][data->enemy[i].texWidth * data->enemy[i].sprite.texY + data->enemy[i].sprite.texX];
 					if (color != 0xFFFFFF)
+					{
 						my_mlx_pixel_put(&data->vars, data->enemy[i].sprite.stripe, y, color);
-					if (data->mouse_x == data->enemy[i].sprite.stripe && data->mouse_y == y)
-						data->mouse_on_enemy[i] = 1;
+						if (data->mouse_x == data->enemy[i].sprite.stripe && data->mouse_y == y)
+							data->mouse_on_enemy[i] = 1;
+					}
 					y++;
 				}
 			}
