@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_image.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 15:16:58 by jhagedor         ###   ########.fr       */
+/*   Updated: 2021/12/21 09:55:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,8 +203,8 @@ void	draw_view(t_data *data)
 		calculate_step_and_sideDist(data);
 		perform_DDA(data);
 		calc_ray_dist(data);
-		data->ray.ZBuffer[i] = data->ray.perpWallDist;
 		draw_ver_line(i, data);
+		data->ray.ZBuffer[i] = data->ray.perpWallDist;
 		i++;
 	}
 }
@@ -236,12 +236,12 @@ void	fill_player_helper(t_data *data, int h, int w)
 			if (data->maze.map[h][w] == 'E')
 			{
 				data->player.planeY = 0.66;
-				data->player.dirX = 1;
+				data->player.dirX = -1;
 			}
 			else
 			{
 				data->player.planeY = -0.66;
-				data->player.dirX = -1;
+				data->player.dirX = 1;
 			}
 		}
 	}
