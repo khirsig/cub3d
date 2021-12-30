@@ -82,13 +82,11 @@ void	calculate_delta_dist(t_data *data)
 	if (data->ray.rayDirX == 0)
 		data->ray.deltaDistX = 1e30;
 	else
-		data->ray.deltaDistX = sqrt(1 + (data->ray.rayDirY * data->ray.rayDirY)
-				/ (data->ray.rayDirX * data->ray.rayDirX));
+		data->ray.deltaDistX = fabs(1 / data->ray.rayDirX);
 	if (data->ray.rayDirY == 0)
 		data->ray.deltaDistY = 1e30;
 	else
-		data->ray.deltaDistY = sqrt(1 + (data->ray.rayDirX * data->ray.rayDirX)
-				/ (data->ray.rayDirY * data->ray.rayDirY));
+		data->ray.deltaDistY = fabs(1 / data->ray.rayDirY);
 }
 
 /*
@@ -222,12 +220,12 @@ void	fill_player_helper(t_data *data, int h, int w)
 		{
 			if (data->maze.map[h][w] == 'N')
 			{
-				data->player.planeX = -0.66;
+				data->player.planeX = 0.66;
 				data->player.dirY = -1;
 			}
 			else
 			{
-				data->player.planeX = 0.66;
+				data->player.planeX = -0.66;
 				data->player.dirY = 1;
 			}
 		}
@@ -236,12 +234,12 @@ void	fill_player_helper(t_data *data, int h, int w)
 			if (data->maze.map[h][w] == 'E')
 			{
 				data->player.planeY = 0.66;
-				data->player.dirX = -1;
+				data->player.dirX = 1;
 			}
 			else
 			{
 				data->player.planeY = -0.66;
-				data->player.dirX = 1;
+				data->player.dirX = -1;
 			}
 		}
 	}
