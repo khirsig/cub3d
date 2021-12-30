@@ -51,7 +51,7 @@ int	player_rotation(t_data *data)
 {
 	double temp;
 
-	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == RIGHT)
+	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == LEFT)
 	{
 		temp = data->player.dirX;
 		data->player.dirX = data->player.dirX * cos(0.05) - data->player.dirY * sin(0.05);
@@ -60,7 +60,7 @@ int	player_rotation(t_data *data)
 		data->player.planeX = data->player.planeX * cos(0.05) - data->player.planeY * sin(0.05);
 		data->player.planeY = temp * sin(0.05) + data->player.planeY * cos(0.05);
 	}
-	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == LEFT)
+	if ((data->player.is_rotating == 1 || data->mouse_rotation == 1) && data->player.rotation_direction == RIGHT)
 	{
 		temp = data->player.dirX;
 		data->player.dirX = data->player.dirX * cos(-0.05) - data->player.dirY * sin(-0.05);

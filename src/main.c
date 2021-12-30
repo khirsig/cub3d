@@ -12,11 +12,6 @@
 
 #include "../includes/cub3D.h"
 
-int	create_trgb(int r, int g, int b)
-{
-	return(65536 * r + 256 * g + b);
-}
-
 int	main(int argc, char **argv)
 {
 	t_data	data;
