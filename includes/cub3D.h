@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 14:16:41 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/03 14:39:20 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	draw_mouse(t_data *data);
 */
 void	draw_view(t_data *data);
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
-int 	*load_texture(t_data *data, char *path);
+int		*load_texture(t_data *data, char *path);
 void	calculate_ray_vector(t_data *data, int i);
 void	calculate_step_and_sideDist(t_data *data);
 void	perform_DDA(t_data *data);
