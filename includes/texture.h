@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maze.h                                             :+:      :+:    :+:   */
+/*   texture.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 10:44:54 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 11:28:14 by jhagedor         ###   ########.fr       */
+/*   Created: 2022/01/03 11:10:47 by jhagedor          #+#    #+#             */
+/*   Updated: 2022/01/03 13:18:43 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAZE_H
-# define MAZE_H
+#ifndef TEXTURE_H
+# define TEXTURE_H
 
-# include "texture.h"
-
-typedef struct s_maze {
-	char		*north_texture;
-	char		*south_texture;
-	char		*west_texture;
-	char		*east_texture;
-	int			floor_color;
-	int			ceiling_color;
-	char		**map;
-	t_texture	texture;
-}				t_maze;
+typedef struct s_texture {
+	void	*img;
+	int		*texture;
+	int		*addr;
+	int		endian;
+	int		bits_per_pixel;
+	int		line_length;
+	int		img_width;
+	int		img_height;
+	int		x;
+	int		y;
+}				t_texture;
 
 #endif

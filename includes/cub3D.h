@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 12:10:33 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/03 14:16:41 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "vars.h"
 # include "ray.h"
 # include "enemy.h"
+# include "texture.h"
 /*
 ** -----------------------------------------------------------------------------
 ** Structs and typedef.
@@ -121,12 +122,17 @@ void	draw_mouse(t_data *data);
 ** Parse color
 */
 
-
 /*
 ** Draw image
 */
 void	draw_view(t_data *data);
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 int 	*load_texture(t_data *data, char *path);
+void	calculate_ray_vector(t_data *data, int i);
+void	calculate_step_and_sideDist(t_data *data);
+void	perform_DDA(t_data *data);
+void	calc_ray_dist(t_data *data);
+void	calc_x_pos(t_data *data);
+void	draw_ver_line(int i, t_data *data);
 
 #endif

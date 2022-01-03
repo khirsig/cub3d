@@ -3,51 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   get_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 13:06:58 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 11:24:55 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/03 13:21:08 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int	*load_texture(t_data *data, char *path)
+void	*load_image(t_data *data, char *path)
 {
-	void *img;
-	int *texture;
-	int *addr;
-	int endian;
-	int bits_per_pixel;
-	int line_length;
-	int	img_width;
-	int img_height;
-	int x;
-	int y;
+	void	*img;
 
-	img = mlx_xpm_file_to_image(data->vars.mlx, path, &img_width, &img_height);
+	img = mlx_xpm_file_to_image(data->vars.mlx, path,
+			&data->maze.texture.img_width, &data->maze.texture.img_height);
 	if (img == NULL)
 	{
 		printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	addr = (int *)mlx_get_data_addr(img, &bits_per_pixel, &line_length, &endian);
+	return (img);
+}
+
+int	*load_texture(t_data *data, char *path)
+{
+	int		x;
+	int		y;
+
+	data->maze.texture.img = load_image(data, path);
+	data->maze.texture.addr = (int *)mlx_get_data_addr(data->maze.texture.img,
+			&data->maze.texture.bits_per_pixel,
+			&data->maze.texture.line_length, &data->maze.texture.endian);
 	y = 0;
-	texture = (int *) malloc(sizeof(int) * (img_height * img_width));
-	while (y < img_height)
+	data->maze.texture.texture = (int *) malloc(sizeof(int)
+			* (data->maze.texture.img_height * data->maze.texture.img_width));
+	while (y < data->maze.texture.img_height)
 	{
 		x = 0;
-		while (x < img_width)
+		while (x < data->maze.texture.img_width)
 		{
-			texture[img_width * y + x] = addr[img_width * y + x];
+			data->maze.texture.texture[data->maze.texture.img_width * y + x]
+				= data->maze.texture.addr[data->maze.texture.img_width * y + x];
 			x++;
 		}
 		y++;
 	}
-	free(img);
-	free(addr);
-	return (texture);
+	free(data->maze.texture.img);
+	free(data->maze.texture.addr);
+	return (data->maze.texture.texture);
 }
+
 void	init_wall(t_data *data)
 {
 	data->vars.texture = malloc(sizeof(int *) * 4);
