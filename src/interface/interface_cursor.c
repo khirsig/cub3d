@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   weapon.c                                           :+:      :+:    :+:   */
+/*   interface_cursor.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:53:20 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:02:05 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 10:11:04 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	draw_weapon(t_data *data)
 			color = data->player.weapon.texture[data->player.weapon.width * yi + xi];
 			if (color != 0xFFFFFF)
 				my_mlx_pixel_put(&data->vars, x, y, color);
-			// printf("%i\n", xi);
 			x++;
 			if (x % 4 == 0)
 				xi++;
