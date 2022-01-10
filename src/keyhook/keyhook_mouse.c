@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 08:35:22 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 10:19:41 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 13:27:19 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	attack_which_enemy(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->numEnemies)
@@ -43,7 +43,8 @@ int	mouse_press(int button, int x, int y, t_data *data)
 		data->player.rotation_direction = RIGHT;
 	}
 	numEnemy = attack_which_enemy(data);
-	if (button == 1 && data->mouse_variant == 0 && numEnemy != -1 && data->enemy[numEnemy].sprite.distance < 20.0000)
+	if (button == 1 && data->mouse_variant == 0
+		&& numEnemy != -1 && data->enemy[numEnemy].sprite.distance < 20.0000)
 	{
 		data->enemy[numEnemy].health -= data->player.damage;
 	}

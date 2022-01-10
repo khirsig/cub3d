@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   interface_minimap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/17 19:33:55 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 13:59:13 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-static char get_map_pos(t_data *data, int x, int y)
+static char	get_map_pos(t_data *data, int x, int y)
 {
 	int		x_temp;
 	int		y_temp;
@@ -25,8 +25,9 @@ static char get_map_pos(t_data *data, int x, int y)
 		y_temp = data->player.y_pos + ((y - 105) / 10);
 	else
 		y_temp = data->player.y_pos + (y % 95 / 10);
-	if (x_temp >= 0 && y_temp >= 0 && x_temp < data->x_length && y_temp < data->y_length)
-		return(data->maze.map[y_temp][x_temp]);
+	if (x_temp >= 0 && y_temp >= 0
+		&& x_temp < data->x_length && y_temp < data->y_length)
+		return (data->maze.map[y_temp][x_temp]);
 	else
 		return ('0');
 }

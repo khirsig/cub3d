@@ -34,6 +34,7 @@ SRC =	src/main.c									\
 		src/enemy/enemy_sprite_casting.c			\
 		src/interface/interface_cursor.c			\
 		src/interface/interface_minimap.c			\
+		src/interface/interface_weapon.c			\
 		src/keyhook/keyhook_handler.c				\
 		src/keyhook/keyhook_destroy.c				\
 		src/keyhook/keyhook_key.c					\

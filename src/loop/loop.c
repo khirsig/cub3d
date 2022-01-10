@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 11:57:28 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 13:24:50 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	gameloop(t_data *data)
 	display_vitals(data);
 	draw_weapon(data);
 	draw_mouse(data);
-	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win, data->vars.mlx_img, 0, 0);
+	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win,
+		data->vars.mlx_img, 0, 0);
 	return (0);
 }

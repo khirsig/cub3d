@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 10:33:53 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 15:39:25 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		minimap(t_data *data);
 */
 int		gameloop(t_data *data);
 int		player_move(int keystroke, t_data *data);
-int		display_vitals(t_data *data);
+void	display_vitals(t_data *data);
 /*
 ** Keyhooks
 */
@@ -101,8 +101,8 @@ int		key_release(int keystroke, t_data *data);
 /*
 ** Player
 */
-int		player_movement(t_data *data);
-int		player_rotation(t_data *data);
+void	player_movement(t_data *data);
+void	player_rotation(t_data *data);
 int		modify_stamina(t_data *data);
 /*
 ** Enemy
