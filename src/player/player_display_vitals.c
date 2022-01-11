@@ -6,13 +6,13 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:49:34 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 15:12:27 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/10 15:39:16 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-int		display_vitals(t_data *data)
+void	display_vitals(t_data *data)
 {
 	int	hp;
 	int	stam;
@@ -39,5 +39,4 @@ int		display_vitals(t_data *data)
 		}
 		y++;
 	}
-	return (0);
 }

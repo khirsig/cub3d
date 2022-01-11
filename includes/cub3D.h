@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 14:39:20 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/11 10:43:21 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# define HEIGHT 1000
+# define WIDTH 1000
 /*
 ** -----------------------------------------------------------------------------
 ** Includes
@@ -73,6 +75,7 @@ void	parser(t_data *data, char *file);
 void	parser_color_wall(t_data *data);
 void	parser_color(char *str, int i, t_data *data);
 void	parser_map(t_data *data, char *file);
+int		parser_map_finalize_map(t_data *data, char **temp);
 int		parser_map_x_length(t_data *data, char *file);
 int		parser_map_y_length(t_data *data, char *file);
 int		parser_map_error(t_data *data, char **map);
@@ -86,7 +89,7 @@ int		minimap(t_data *data);
 */
 int		gameloop(t_data *data);
 int		player_move(int keystroke, t_data *data);
-int		display_vitals(t_data *data);
+void	display_vitals(t_data *data);
 /*
 ** Keyhooks
 */
@@ -100,15 +103,21 @@ int		key_release(int keystroke, t_data *data);
 /*
 ** Player
 */
-int		player_movement(t_data *data);
-int		player_rotation(t_data *data);
+void	player_movement(t_data *data);
+void	player_rotation(t_data *data);
 int		modify_stamina(t_data *data);
 /*
 ** Enemy
 */
-int		enemy_sprite_casting(t_data *data);
+void	enemy_sprite_casting(t_data *data);
+void	enemy_sprite_casting_sort(t_data *data);
+void	enemy_sprite_casting_cam_transform(t_data *data, int i);
+void	enemy_sprite_casting_draw(t_data *data, int i, int vMoveScreen);
+int		enemy_sprite_casting_height(t_data *data,int i);
+void	enemy_sprite_casting_width(t_data *data,int i);
 void	enemy_anim_cycle(t_data *data);
 int		count_enemies(t_data *data);
+int		get_sprite_num(t_data *data, int needle);
 void	enemy_setup(t_data *data);
 void	enemy_actions(t_data *data);
 void	setup_rat(t_data *data, t_enemy *enemy, int x, int y);

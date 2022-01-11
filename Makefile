@@ -14,6 +14,7 @@ OBJECTS = $(OBJDIR)/*.o
 SRC =	src/main.c									\
 		src/parser/parser.c							\
 		src/parser/parser_map.c						\
+		src/parser/parser_map_finalize.c			\
 		src/parser/parser_map_length.c				\
 		src/parser/parser_map_error.c				\
 		src/parser/parser_color.c					\
@@ -31,8 +32,12 @@ SRC =	src/main.c									\
 		src/enemy/enemy_animation.c					\
 		src/enemy/enemy_init_types.c				\
 		src/enemy/enemy_sprite_casting.c			\
+		src/enemy/enemy_sprite_casting_draw.c		\
+		src/enemy/enemy_sprite_casting_translate.c	\
+		src/enemy/enemy_sprite_casting_sort.c		\
 		src/interface/interface_cursor.c			\
 		src/interface/interface_minimap.c			\
+		src/interface/interface_weapon.c			\
 		src/keyhook/keyhook_handler.c				\
 		src/keyhook/keyhook_destroy.c				\
 		src/keyhook/keyhook_key.c					\

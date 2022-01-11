@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhook_handler.c                                  :+:      :+:    :+:   */
+/*   px.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 09:22:52 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:27:00 by khirsig          ###   ########.fr       */
+/*   Created: 2022/01/10 13:53:36 by khirsig           #+#    #+#             */
+/*   Updated: 2022/01/10 13:54:04 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3D.h"
+#ifndef PX_H
+# define PX_H
 
-int	keyhook_handler(t_data *data)
-{
-	mlx_hook(data->vars.mlx_win, 4, (1L << 2), &mouse_press, data);
-	mlx_hook(data->vars.mlx_win, 5, (1L << 3), &mouse_release, data);
-	mlx_hook(data->vars.mlx_win, 17, 0L, &close_button, data);
-	mlx_hook(data->vars.mlx_win, 2, (1L << 0), &key_press, data);
-	mlx_hook(data->vars.mlx_win, 3, (1L << 1), &key_release, data);
-	return (0);
-}
+typedef struct s_px {
+	int	x;
+	int	y;
+	int	x_scaling;
+	int	y_scaling;
+	int	color;
+}				t_px;
+
+#endif
