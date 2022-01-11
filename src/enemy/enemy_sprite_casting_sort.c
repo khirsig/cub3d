@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:03:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 16:16:10 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:11:20 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Looks for the sprite with the searched order, not the enemy order.
+*/
 int	get_sprite_num(t_data *data, int needle)
 {
 	int	i;
@@ -26,6 +29,9 @@ int	get_sprite_num(t_data *data, int needle)
 	return (0);
 }
 
+/*
+** Compares two sprites distance with each other and swaps them if needed.
+*/
 static int	enemy_sprite_casting_sort_it(t_data *data, int i, int sort_actions)
 {
 	int	count;
@@ -47,6 +53,9 @@ static int	enemy_sprite_casting_sort_it(t_data *data, int i, int sort_actions)
 	return (sort_actions);
 }
 
+/*
+** Initializes all sprites.
+*/
 void	enemy_sprite_casting_sort_init(t_data *data)
 {
 	int	i;
@@ -65,6 +74,11 @@ void	enemy_sprite_casting_sort_init(t_data *data)
 	}
 }
 
+/*
+** Sorts all the sprites in the right order depending on the distance to player.
+** Always compares two next entries with each other.
+** Continues to sort until no changes can be done.
+*/
 void	enemy_sprite_casting_sort(t_data *data)
 {
 	int	i;

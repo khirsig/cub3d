@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 08:35:22 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:27:19 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:32:10 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Returns the enemy ID which the cursor is on top of if there is any.
+** If not, the function returns -1.
+*/
 static int	attack_which_enemy(t_data *data)
 {
 	int	i;
@@ -26,6 +30,22 @@ static int	attack_which_enemy(t_data *data)
 	return (-1);
 }
 
+/*
+** Handles all possible mouse buttons by the user if they are released.
+*/
+int	mouse_release(int button, int x, int y, t_data *data)
+{
+	(void)x;
+	(void)y;
+	if (button == 1 && (data->mouse_variant == 2 || data->mouse_variant == 1))
+		data->mouse_rotation = 0;
+	return (0);
+}
+
+/*
+** Handles all possible mouse buttons and movement by the user.
+** Any click does damage if enemy is close enough and below the cursor.
+*/
 int	mouse_press(int button, int x, int y, t_data *data)
 {
 	int	numEnemy;
@@ -48,14 +68,5 @@ int	mouse_press(int button, int x, int y, t_data *data)
 	{
 		data->enemy[numEnemy].health -= data->player.damage;
 	}
-	return (0);
-}
-
-int	mouse_release(int button, int x, int y, t_data *data)
-{
-	(void)x;
-	(void)y;
-	if (button == 1 && (data->mouse_variant == 2 || data->mouse_variant == 1))
-		data->mouse_rotation = 0;
 	return (0);
 }

@@ -6,13 +6,17 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:53:20 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 14:18:05 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:40:18 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 #include "px.h"
 
+/*
+** Gets the position of the cursor and checks which variant needs to be drawn.
+** Chooses the right texture and sets correct height and width.
+*/
 void	draw_mouse_variant_choose(t_data *data)
 {
 	if (data->mouse_x > 800)
@@ -36,6 +40,9 @@ void	draw_mouse_variant_choose(t_data *data)
 	}
 }
 
+/*
+** Keeps the cursor from going over the window edges.
+*/
 static void	draw_mouse_variant(t_data *data)
 {
 	mlx_mouse_get_pos(data->vars.mlx_win, &data->mouse_x, &data->mouse_y);
@@ -52,18 +59,12 @@ static void	draw_mouse_variant(t_data *data)
 		mlx_mouse_move(data->vars.mlx_win, data->mouse_x, 18);
 	mlx_mouse_get_pos(data->vars.mlx_win, &data->mouse_x, &data->mouse_y);
 	draw_mouse_variant_choose(data);
-	if (data->mouse_variant == 1 || data->mouse_variant == 2)
-	{
-		data->mouse_height = 9;
-		data->mouse_width = 13;
-	}
-	else
-	{
-		data->mouse_height = 12;
-		data->mouse_width = 12;
-	}
 }
 
+/*
+** Hides the OS Cursor but does not lock it.
+** Draws the cursor with correct variant texture.
+*/
 void	draw_mouse(t_data *data)
 {
 	t_px	px;

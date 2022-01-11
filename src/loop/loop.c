@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:24:50 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:45:27 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Main gameloop with all the important calculations and drawings in order.
+*/
 int	gameloop(t_data *data)
 {
 	mlx_clear_window(data->vars.mlx, data->vars.mlx_win);

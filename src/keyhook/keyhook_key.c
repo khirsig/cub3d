@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:05:12 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 09:27:36 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:45:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Handles all possible keystrokes by the user if they are released.
+** Unsets move directions and sprinting.
+*/
 int	key_release(int keystroke, t_data *data)
 {
 	if (keystroke == 257 && data->player.is_sprinting == 1)
@@ -32,6 +36,10 @@ int	key_release(int keystroke, t_data *data)
 	return (0);
 }
 
+/*
+** Handles the keys for sprinting and rotating the camera.
+** Sprinting only works if stamina > 0.
+*/
 static void	secondary_movement(int keystroke, t_data *data)
 {
 	if (keystroke == 257 && data->player.stamina > 0)
@@ -51,6 +59,10 @@ static void	secondary_movement(int keystroke, t_data *data)
 	}
 }
 
+/*
+** Handles all possible keystrokes by the user if they are pressed.
+** Saves movement direction or exits the program.
+*/
 int	key_press(int keystroke, t_data *data)
 {
 	if (keystroke == 2)

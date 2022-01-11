@@ -6,12 +6,17 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 10:15:21 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:38:27 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:01:23 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Checks if the player is sprinting.
+** If is_sprinting is 1 and stamina > 0.99, the stamina gets drained.
+** If the player runs out of stamina he stops sprinting.
+*/
 int	modify_stamina(t_data *data)
 {
 	if (data->player.is_sprinting == 0 && data->player.stamina < 100.000000)
