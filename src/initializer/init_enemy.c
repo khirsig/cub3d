@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/20 11:27:03 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 12:29:22 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Iterates through the map and returns the count of enemies.
+*/
 int	count_enemies(t_data *data)
 {
 	int	count;
@@ -34,6 +37,10 @@ int	count_enemies(t_data *data)
 	return (count);
 }
 
+/*
+** Iterates through the map and finds each enemy.
+** Initializes each enemy depending on their type. (Rat or Goblin)
+*/
 void	enemy_setup(t_data *data)
 {
 	int	x;
@@ -63,6 +70,10 @@ void	enemy_setup(t_data *data)
 	}
 }
 
+/*
+** Initializes each enemy depending on how many there are.
+** Allocates place for the enemy data structures.
+*/
 void	init_enemy(t_data *data)
 {
 	data->numEnemies = count_enemies(data);

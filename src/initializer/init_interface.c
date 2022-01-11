@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 22:53:58 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:41:52 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 12:26:00 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Initializes all the interface base values.
+** Loads textures for cursor and weapon.
+*/
 void	init_interface(t_data *data)
 {
 	data->player.weapon.y = 799;

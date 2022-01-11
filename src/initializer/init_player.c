@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:51:02 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 10:53:21 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:25:12 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Initializes all the player base values.
+*/
 void	init_player(t_data *data)
 {
 	fill_player(data);

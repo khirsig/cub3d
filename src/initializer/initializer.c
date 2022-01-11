@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   initializer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:18:01 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 10:55:27 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:24:29 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Initializes all the data structures and variables.
+** Creates the game window and inital game picture.
+*/
 void	initializer(t_data *data)
 {
 	init_player(data);
