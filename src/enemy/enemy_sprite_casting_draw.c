@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:34:32 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 10:45:49 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:13:28 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Draws the sprites with each stripe that have been created earlier.
+*/
 static void	enemy_sprite_casting_draw_str(t_data *data, int i, int vMoveScreen)
 {
 	int	d;
@@ -40,6 +43,10 @@ static void	enemy_sprite_casting_draw_str(t_data *data, int i, int vMoveScreen)
 	}
 }
 
+/*
+** Checks if the sprite should be drawn or is blocked by a wall.
+** Creates stripes of the sprite texture that can be drawn.
+*/
 void	enemy_sprite_casting_draw(t_data *data, int i, int vMoveScreen)
 {
 	while (data->enemy[i].sprite.stripe < data->enemy[i].sprite.drawEndX)

@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:19:41 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 10:49:09 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:05:06 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Organizes the casting of all the enemy sprites.
+*/
 void	enemy_sprite_casting(t_data *data)
 {
 	int	vMoveScreen;

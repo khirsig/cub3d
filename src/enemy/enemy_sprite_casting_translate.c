@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:53:45 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 16:57:27 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:07:06 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Translates and transforms the current player view to start the calculations.
+*/
 void	enemy_sprite_casting_cam_transform(t_data *data, int i)
 {
 	data->enemy[i].sprite.spriteX
@@ -31,6 +34,9 @@ void	enemy_sprite_casting_cam_transform(t_data *data, int i)
 				/ data->enemy[i].sprite.transformY));
 }
 
+/*
+** Calculates and defines the height of the sprite.
+*/
 int	enemy_sprite_casting_height(t_data *data, int i)
 {
 	int	vMoveScreen;
@@ -51,6 +57,9 @@ int	enemy_sprite_casting_height(t_data *data, int i)
 	return (vMoveScreen);
 }
 
+/*
+** Calculates and defines the width of the sprite.
+*/
 void	enemy_sprite_casting_width(t_data *data, int i)
 {
 	data->enemy[i].sprite.width = abs((int)(HEIGHT

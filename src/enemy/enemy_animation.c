@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 16:00:48 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:15:29 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ static void	enemy_anim_cycle_combat(t_data *data, int i)
 	data->enemy[i].animstep += 0.10;
 }
 
+/*
+** Slowly iterates through the different animation steps depending on status.
+** Each time a new full number is reached the next texture gets drawn.
+*/
 void	enemy_anim_cycle(t_data *data)
 {
 	int	i;

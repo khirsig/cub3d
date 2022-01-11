@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:40:23 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:49:49 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:16:57 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Updates the map char ** with the changing position of each enemy.
+*/
 static void	enemy_update_map(t_data *data)
 {
 	int	i;
@@ -37,6 +40,9 @@ static void	enemy_update_map(t_data *data)
 	}
 }
 
+/*
+** Moves the enemy in player direction.
+*/
 static void	enemy_walk(t_data *data, int i)
 {
 	data->enemy[i].status = WALK;
@@ -54,6 +60,10 @@ static void	enemy_walk(t_data *data, int i)
 			* data->enemy[i].move_speed;
 }
 
+/*
+** Changes the enemies actions and status.
+** Checks for the distance to player to do so.
+*/
 void	enemy_actions(t_data *data)
 {
 	int	i;
