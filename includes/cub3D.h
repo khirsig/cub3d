@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 16:55:03 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 10:43:21 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int		modify_stamina(t_data *data);
 void	enemy_sprite_casting(t_data *data);
 void	enemy_sprite_casting_sort(t_data *data);
 void	enemy_sprite_casting_cam_transform(t_data *data, int i);
+void	enemy_sprite_casting_draw(t_data *data, int i, int vMoveScreen);
 int		enemy_sprite_casting_height(t_data *data,int i);
 void	enemy_sprite_casting_width(t_data *data,int i);
 void	enemy_anim_cycle(t_data *data);

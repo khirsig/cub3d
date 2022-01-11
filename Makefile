@@ -32,6 +32,7 @@ SRC =	src/main.c									\
 		src/enemy/enemy_animation.c					\
 		src/enemy/enemy_init_types.c				\
 		src/enemy/enemy_sprite_casting.c			\
+		src/enemy/enemy_sprite_casting_draw.c		\
 		src/enemy/enemy_sprite_casting_translate.c	\
 		src/enemy/enemy_sprite_casting_sort.c		\
 		src/interface/interface_cursor.c			\
