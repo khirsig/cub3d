@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 12:29:22 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 12:30:43 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	count_enemies(t_data *data)
 }
 
 /*
-** Iterates through the map and finds each enemy.
+** Iterates through the map and finds each enemy and their type.
 ** Initializes each enemy depending on their type. (Rat or Goblin)
 */
 void	enemy_setup(t_data *data)

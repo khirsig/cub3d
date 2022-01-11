@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:22:52 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:27:00 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 12:31:53 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Organized function for all the keyhooks.
+** Handles all possible user input through mouse and keyboard.
+*/
 int	keyhook_handler(t_data *data)
 {
 	mlx_hook(data->vars.mlx_win, 4, (1L << 2), &mouse_press, data);
