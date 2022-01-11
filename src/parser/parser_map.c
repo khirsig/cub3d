@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:20:17 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:58:37 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** This checks for the maximum length in both x and y for the map.
+** If any length is <= 0 it exits the program cleanly.
+*/
 static void	parser_map_set_length(t_data *data, char *file)
 {
 	data->y_length = parser_map_y_length(data, file);
@@ -28,6 +32,10 @@ static void	parser_map_set_length(t_data *data, char *file)
 	}
 }
 
+/*
+** Skips every newline until the map starts.
+** Then saves every line and returns them as **char.
+*/
 static char	**parser_map_read_temp(t_data *data)
 {
 	char	**temp;
@@ -57,6 +65,9 @@ static char	**parser_map_read_temp(t_data *data)
 	return (temp);
 }
 
+/*
+** Main parser function that checks and sets up everything in order.
+*/
 void	parser_map(t_data *data, char *file)
 {
 	char	**temp;
@@ -69,5 +80,6 @@ void	parser_map(t_data *data, char *file)
 		exit(EXIT_FAILURE);
 	}
 	free(temp);
-	parser_map_error(data, data->maze.map);
+	if (parser_map_error(data, data->maze.map) == 1)
+		exit(EXIT_FAILURE);
 }

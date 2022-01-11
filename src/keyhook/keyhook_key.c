@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:05:12 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 12:36:16 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:45:01 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	key_release(int keystroke, t_data *data)
 
 /*
 ** Handles the keys for sprinting and rotating the camera.
+** Sprinting only works if stamina > 0.
 */
 static void	secondary_movement(int keystroke, t_data *data)
 {

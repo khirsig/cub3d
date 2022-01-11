@@ -6,13 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 13:34:44 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 14:17:47 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:44:20 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 #include "px.h"
 
+/*
+** Returns the color of the current pixel of the texture.
+*/
 static int	draw_weapon_get_px(t_data *data, int ys, int xs)
 {
 	int	color;
@@ -21,6 +24,9 @@ static int	draw_weapon_get_px(t_data *data, int ys, int xs)
 	return (color);
 }
 
+/*
+** Draws the weapon texture upscaled x4 to be bigger on the screen.
+*/
 void	draw_weapon(t_data *data)
 {
 	int	color;

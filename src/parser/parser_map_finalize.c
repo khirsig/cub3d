@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 10:33:23 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:18:48 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:56:35 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Checks if the given char is according to map rules.
+** If it finds a wrong char it returns 1.
+*/
 static int	parser_map_check_char(char c)
 {
 	if (c == '1' || c == '0' || c == ' ' || c == '\0' || c == 'R' || c == 'G'
@@ -21,6 +25,10 @@ static int	parser_map_check_char(char c)
 		return (1);
 }
 
+/*
+** Fills up the map with the according chars.
+** If the strings are not long enough the rest gets filled with empty spaces.
+*/
 static int	parser_map_finalize_map_fill(t_data *data, char **temp, int y)
 {
 	int	x;
@@ -47,6 +55,11 @@ static int	parser_map_finalize_map_fill(t_data *data, char **temp, int y)
 	return (0);
 }
 
+/*
+** Takes the temp map **char.
+** Converts it into the final version.
+** Returns 1 if it finds an error.
+*/
 int	parser_map_finalize_map(t_data *data, char **temp)
 {
 	int	y;

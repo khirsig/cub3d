@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:30:57 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:23:02 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:52:51 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ static	int	parser_map_x_length_get(int fd, char *str)
 	return (highest_count);
 }
 
+/*
+** Opens the file again and skips newlines.
+** Returns the maximum x-length of the map.
+*/
 int	parser_map_x_length(t_data *data, char *file)
 {
 	char	*str;
@@ -80,6 +84,10 @@ static int	parser_map_y_length_get(int fd, char *str)
 	return (count);
 }
 
+/*
+** Opens the file again and skips newlines.
+** Returns the maximum y-length of the map.
+*/
 int	parser_map_y_length(t_data *data, char *file)
 {
 	char	*str;

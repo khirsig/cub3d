@@ -6,12 +6,16 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 13:59:13 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 13:43:09 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Checks which pixel of the minimap should be drawn like what.
+** Calculates with 10x10 pixel for each drawn object.
+*/
 static char	get_map_pos(t_data *data, int x, int y)
 {
 	int		x_temp;
@@ -32,6 +36,10 @@ static char	get_map_pos(t_data *data, int x, int y)
 		return ('0');
 }
 
+/*
+** Draws a fixed 200x200 Minimap at the top right position of the window.
+** The player is fixed in the middle with 8 closest fields in each direction.
+*/
 int	minimap(t_data *data)
 {
 	char	map_pos;

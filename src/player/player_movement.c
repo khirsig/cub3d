@@ -6,11 +6,12 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:38:09 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:03:32 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
 static void	player_movement_left_right(t_data *data)
 {
 	int	x;
@@ -32,6 +33,10 @@ static void	player_movement_left_right(t_data *data)
 	}
 }
 
+/*
+** Checks if the player is currently moving up, down, left or right.
+** If yes, moves the player to those positions.
+*/
 void	player_movement(t_data *data)
 {
 	int	x;
@@ -74,6 +79,10 @@ static void	player_rotation_right(t_data *data)
 	}
 }
 
+/*
+** Checks if the player is currently rotating with any input.
+** If yes, rotates the camera either left or right.
+*/
 void	player_rotation(t_data *data)
 {
 	double	temp;

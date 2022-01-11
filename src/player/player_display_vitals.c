@@ -6,12 +6,15 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:49:34 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:39:16 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/11 14:01:53 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+/*
+** Draws the health and stamina bar at the top left of the screen.
+*/
 void	display_vitals(t_data *data)
 {
 	int	hp;
