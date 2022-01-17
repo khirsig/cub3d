@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_image.c                                       :+:      :+:    :+:   */
+/*   draw_view_vert_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:54:51 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/03 13:56:30 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:28:35 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,17 @@ void	draw_ver_line(int i, t_data *data)
 
 	j = 0;
 	data->ray.ZBuffer[i] = data->ray.perpWallDist;
-	while (j++ < data->ray.drawStart)
-		my_mlx_pixel_put(&data->vars, i, j, data->maze.floor_color);
+	while (j < data->ray.drawStart)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
+		j++;
+	}
 	while (data->ray.drawStart++ <= data->ray.drawEnd)
 		draw_wall(data, i);
 	j = data->ray.drawEnd + 1;
-	while (j++ < 1000)
-		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
+	while (j < 1000)
+	{
+		my_mlx_pixel_put(&data->vars, i, j, data->maze.floor_color);
+		j++;
+	}
 }

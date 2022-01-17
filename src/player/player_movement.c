@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:03:32 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:31:46 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void	player_movement_left_right(t_data *data)
 		data->player.x_pos += data->player.planeX * data->player.speed;
 		data->player.y_pos += data->player.planeY * data->player.speed;
 	}
-	y = (data->player.y_pos - data->player.planeY * data->player.speed) - 0.08;
-	x = (data->player.x_pos - data->player.planeX * data->player.speed) - 0.08;
+	y = (data->player.y_pos - data->player.planeY * data->player.speed) + 0.08;
+	x = (data->player.x_pos - data->player.planeX * data->player.speed) + 0.08;
 	if (data->player.walk_left == 1 && data->maze.map[y][x] != '1')
 	{
 		data->player.x_pos -= data->player.planeX * data->player.speed;
@@ -49,8 +49,8 @@ void	player_movement(t_data *data)
 		data->player.y_pos += data->player.dirY * data->player.speed;
 		data->player.x_pos += data->player.dirX * data->player.speed;
 	}
-	y = (data->player.y_pos - data->player.dirY * data->player.speed) - 0.08;
-	x = (data->player.x_pos - data->player.dirX * data->player.speed) - 0.08;
+	y = (data->player.y_pos - data->player.dirY * data->player.speed) + 0.08;
+	x = (data->player.x_pos - data->player.dirX * data->player.speed) + 0.08;
 	if (data->player.walk_down == 1 && data->maze.map[y][x] != '1')
 	{
 		data->player.y_pos -= data->player.dirY * data->player.speed;
