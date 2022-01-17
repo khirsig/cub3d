@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_color.c                                      :+:      :+:    :+:   */
+/*   parser_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2021/12/20 11:41:00 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/17 12:43:16 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_color_str_char(char *str)
 	while (str[i] != '\n')
 	{
 		if ((str[i] < '0' || str[i] > '9') && str[i] != ',' && str[i] != ' ')
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_error("Error\n");
 		i++;
 	}
 }
@@ -42,15 +42,15 @@ void	check_color_str(char *str)
 	count = 1;
 	check_color_str_char(str);
 	if (str[i] != ' ')
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_error("Error\n");
 	while (count <= 5)
 	{
 		while (str[i] == ' ')
 			i++;
 		if (count % 2 == 0 && str[i] != ',')
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_error("Error\n");
 		if (count % 2 == 1 && (str[i] < '0' || str[i] > '9'))
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_error("Error\n");
 		if (str[i] == ',')
 			i++;
 		else
@@ -84,7 +84,7 @@ void	parser_color(char *str, int i, t_data *data)
 		i++;
 	b = ft_atoi(&str[i + 1]);
 	if (r > 255 || g > 255 || b > 255)
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_error("Error\n");
 	if (c == 'F')
 		data->maze.floor_color = 65536 * r + 256 * g + b;
 	else

@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 11:49:59 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:41:50 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	init_interface(t_data *data);
 /*
 ** Parser
 */
+void	ft_putstr_error(char *str);
 void	parser(t_data *data, char *file);
 void	parser_color_wall(t_data *data);
 void	parser_color(char *str, int i, t_data *data);

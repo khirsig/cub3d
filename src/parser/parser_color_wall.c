@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/03 10:24:34 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:42:45 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	parse_texture(char *str, int i, t_data *data)
 	else if (str[i] == 'E' && str[i + 1] == 'A')
 		data->maze.east_texture = get_clean_strings(&str[i + 2]);
 	else
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_error("Error\n");
 }
 
 /*
@@ -101,12 +101,12 @@ void	parser_color_wall(t_data *data)
 		if (str == NULL || count == 6)
 		{
 			if (count < 6)
-				ft_putstr_fd("Error\n", 2);
+				ft_putstr_error("Error\n");
 			break ;
 		}
 		i = check_line(str, data);
 		if (i == 0)
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_error("Error\n");
 		else if (i == 1 || i == 2)
 			count++;
 		lines++;
