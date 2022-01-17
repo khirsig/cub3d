@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_view_vert_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:54:51 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/17 14:28:35 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:07:45 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ void	draw_ver_line(int i, t_data *data)
 		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
 		j++;
 	}
-	while (data->ray.drawStart++ <= data->ray.drawEnd)
+	while (data->ray.drawStart <= data->ray.drawEnd)
+	{
 		draw_wall(data, i);
+		data->ray.drawStart++;
+	}
 	j = data->ray.drawEnd + 1;
 	while (j < 1000)
 	{
