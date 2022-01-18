@@ -1,7 +1,7 @@
-NO ./resources/textures/wall.xpm
-SO ./resources/textures/floor.xpm
-WE ./resources/textures/floor.xpm
-EA ./resources/textures/wall.xpm
+NO ./resources/textures/wall1.xpm
+SO ./resources/textures/wall2.xpm
+WE ./resources/textures/wall2.xpm
+EA ./resources/textures/wall1.xpm
 
 
 
