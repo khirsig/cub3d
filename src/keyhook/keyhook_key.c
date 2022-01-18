@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:05:12 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 13:45:01 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/18 10:20:41 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ static void	secondary_movement(int keystroke, t_data *data)
 */
 int	key_press(int keystroke, t_data *data)
 {
+	if (keystroke == 53 || keystroke == 12)
+	{
+		printf("exit\n");
+		exit(0);
+	}
 	if (keystroke == 2)
 		data->player.walk_right = 1;
 	if (keystroke == 0)
@@ -74,10 +79,7 @@ int	key_press(int keystroke, t_data *data)
 	if (keystroke == 1)
 		data->player.walk_down = 1;
 	secondary_movement(keystroke, data);
-	if (keystroke == 53 || keystroke == 12)
-	{
-		printf("exit\n");
-		exit(0);
-	}
+	if (keystroke == 3)
+		player_actions_door(data);
 	return (0);
 }

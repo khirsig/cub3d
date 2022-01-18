@@ -45,6 +45,7 @@ SRC =	src/main.c									\
 		src/keyhook/keyhook_mouse.c					\
 		src/loop/loop.c								\
 		src/player/player_movement.c				\
+		src/player/player_actions.c					\
 		src/player/player_modify_vitals.c			\
 		src/player/player_display_vitals.c			\
 

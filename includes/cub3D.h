@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 14:41:33 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/18 10:44:12 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define HEIGHT 1000
 # define WIDTH 1000
+# define DOOR_TEX "./resources/textures/door.xpm"
 /*
 ** -----------------------------------------------------------------------------
 ** Includes
@@ -107,6 +108,7 @@ int		key_release(int keystroke, t_data *data);
 */
 void	player_movement(t_data *data);
 void	player_rotation(t_data *data);
+void	player_actions_door(t_data *data);
 int		modify_stamina(t_data *data);
 /*
 ** Enemy
