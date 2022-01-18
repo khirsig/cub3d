@@ -21,6 +21,7 @@ SRC =	src/main.c									\
 		src/parser/parser_color_wall.c				\
 		src/initializer/initializer.c				\
 		src/initializer/init_enemy.c				\
+		src/initializer/init_door.c					\
 		src/initializer/init_interface.c			\
 		src/initializer/init_player.c				\
 		src/draw_image/draw_view.c					\

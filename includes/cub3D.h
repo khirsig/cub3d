@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 12:41:50 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:41:33 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	initializer(t_data *data);
 void	init_player(t_data *data);
 void	fill_player(t_data *data);
 void	init_wall(t_data *data);
+void	init_door(t_data *data);
 void	init_enemy(t_data *data);
 void	init_interface(t_data *data);
 /*

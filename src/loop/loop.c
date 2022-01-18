@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:23:33 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 13:45:27 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/17 15:15:19 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	gameloop(t_data *data)
 	draw_mouse(data);
 	mlx_put_image_to_window(data->vars.mlx, data->vars.mlx_win,
 		data->vars.mlx_img, 0, 0);
+	printf("%f %f\n", data->player.dirX, data->player.dirY);
 	return (0);
 }
