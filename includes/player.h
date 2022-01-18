@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/03 14:43:01 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 15:10:16 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_player {
 	int			is_rotating;
 	int			rotation_direction;
 	int			is_sprinting;
+	int			is_using_door;
 	float		health;
 	float		stamina;
 	float		damage;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc_image.c                                       :+:      :+:    :+:   */
+/*   draw_view_calc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 17:57:05 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/03 14:14:27 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:45:04 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	perform_DDA(t_data *data)
 		}
 		if (data->maze.map[data->ray.mapY][data->ray.mapX] == '1')
 			data->ray.hit = 1;
+		if (data->maze.map[data->ray.mapY][data->ray.mapX] == '2')
+			data->ray.hit = 2;
 	}
 }
 

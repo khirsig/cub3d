@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:54:51 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/17 15:07:45 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:48:40 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	draw_wall(t_data *data, int i)
 	texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
 	data->ray.texPos += data->ray.step;
 	color = data->vars.texture[0][data->ray.texHeight * texY + data->ray.texX];
-	if (data->ray.side == 0)
+	if (data->ray.side == 0 && data->ray.hit == 1)
 	{
 		if (data->ray.rayDirX < 0)
 			color = data->vars.texture[2]
@@ -37,7 +37,7 @@ void	draw_wall(t_data *data, int i)
 			color = data->vars.texture[3]
 			[data->ray.texHeight * texY + data->ray.texX];
 	}
-	else
+	else if (data->ray.hit == 1)
 	{
 		if (data->ray.rayDirY < 0)
 			color = data->vars.texture[0]
@@ -46,6 +46,9 @@ void	draw_wall(t_data *data, int i)
 			color = data->vars.texture[1]
 			[data->ray.texHeight * texY + data->ray.texX];
 	}
+	if (data->ray.hit == 2)
+		color = data->maze.door_texture
+		[data->ray.texHeight * texY + data->ray.texX];
 	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
 }
 

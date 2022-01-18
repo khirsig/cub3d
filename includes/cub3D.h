@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 12:41:50 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/01/18 10:44:12 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define HEIGHT 1000
 # define WIDTH 1000
+# define DOOR_TEX "./resources/textures/door.xpm"
 /*
 ** -----------------------------------------------------------------------------
 ** Includes
@@ -66,6 +67,7 @@ void	initializer(t_data *data);
 void	init_player(t_data *data);
 void	fill_player(t_data *data);
 void	init_wall(t_data *data);
+void	init_door(t_data *data);
 void	init_enemy(t_data *data);
 void	init_interface(t_data *data);
 /*
@@ -106,6 +108,7 @@ int		key_release(int keystroke, t_data *data);
 */
 void	player_movement(t_data *data);
 void	player_rotation(t_data *data);
+void	player_actions_door(t_data *data);
 int		modify_stamina(t_data *data);
 /*
 ** Enemy

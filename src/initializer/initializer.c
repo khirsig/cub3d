@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:18:01 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 12:24:29 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:41:15 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	initializer(t_data *data)
 {
 	init_player(data);
 	init_wall(data);
+	init_door(data);
 	init_enemy(data);
 	init_interface(data);
 	data->vars.mlx_win = mlx_new_window(data->vars.mlx,
