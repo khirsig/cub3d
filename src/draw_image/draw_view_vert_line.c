@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   draw_view_vert_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:54:51 by jhagedor          #+#    #+#             */
 /*   Updated: 2022/01/18 10:48:40 by khirsig          ###   ########.fr       */
