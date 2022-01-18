@@ -6,11 +6,21 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 13:43:09 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/18 11:07:39 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+static void	minimap_put_pixel(t_data *data, char map_pos, int x, int y)
+{
+	if (map_pos == '1')
+		my_mlx_pixel_put(&data->vars, x, y, 0x00444444);
+	if (map_pos == 'R' || map_pos == 'G')
+		my_mlx_pixel_put(&data->vars, x, y, 0x00FE0000);
+	if (map_pos == '2' || map_pos == '3')
+		my_mlx_pixel_put(&data->vars, x, y, 0x004D00B6);
+}
 
 /*
 ** Checks which pixel of the minimap should be drawn like what.
@@ -57,10 +67,7 @@ int	minimap(t_data *data)
 			else if (x > 814 && x <= 986 && y < 186 && y >= 14)
 			{
 				map_pos = get_map_pos(data, x, y);
-				if (map_pos == '1')
-					my_mlx_pixel_put(&data->vars, x, y, 0x00444444);
-				if (map_pos == 'R' || map_pos == 'G')
-					my_mlx_pixel_put(&data->vars, x, y, 0x00FE0000);
+				minimap_put_pixel(data, map_pos, x, y);
 			}
 			x++;
 		}

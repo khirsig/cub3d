@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 13:31:31 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 15:06:13 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/18 11:02:40 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ static void	player_movement_left_right(t_data *data)
 	int	x;
 	int	y;
 
-	y = (data->player.y_pos + data->player.planeY * data->player.speed * 1.08);
-	x = (data->player.x_pos + data->player.planeX * data->player.speed * 1.08);
-	if (data->player.walk_right == 1 && data->maze.map[y][x] != '1')
+	y = (data->player.y_pos + data->player.planeY * data->player.speed * 1.35);
+	x = (data->player.x_pos + data->player.planeX * data->player.speed * 1.35);
+	if (data->player.walk_right == 1
+		&& data->maze.map[y][x] != '1' && data->maze.map[y][x] != '2')
 	{
 		data->player.x_pos += data->player.planeX * data->player.speed;
 		data->player.y_pos += data->player.planeY * data->player.speed;
 	}
-	y = (data->player.y_pos - data->player.planeY * data->player.speed * 1.08);
-	x = (data->player.x_pos - data->player.planeX * data->player.speed * 1.08);
-	if (data->player.walk_left == 1 && data->maze.map[y][x] != '1')
+	y = (data->player.y_pos - data->player.planeY * data->player.speed * 1.35);
+	x = (data->player.x_pos - data->player.planeX * data->player.speed * 1.35);
+	if (data->player.walk_left == 1
+		&& data->maze.map[y][x] != '1' && data->maze.map[y][x] != '2')
 	{
 		data->player.x_pos -= data->player.planeX * data->player.speed;
 		data->player.y_pos -= data->player.planeY * data->player.speed;
@@ -42,16 +44,18 @@ void	player_movement(t_data *data)
 	int	x;
 	int	y;
 
-	y = (data->player.y_pos + data->player.dirY * data->player.speed * 1.08);
-	x = (data->player.x_pos + data->player.dirX * data->player.speed * 1.08);
-	if (data->player.walk_up == 1 && data->maze.map[y][x] != '1')
+	y = (data->player.y_pos + data->player.dirY * data->player.speed * 1.35);
+	x = (data->player.x_pos + data->player.dirX * data->player.speed * 1.35);
+	if (data->player.walk_up == 1
+		&& data->maze.map[y][x] != '1' && data->maze.map[y][x] != '2')
 	{
 		data->player.y_pos += data->player.dirY * data->player.speed;
 		data->player.x_pos += data->player.dirX * data->player.speed;
 	}
-	y = (data->player.y_pos - data->player.dirY * data->player.speed * 1.08);
-	x = (data->player.x_pos - data->player.dirX * data->player.speed * 1.08);
-	if (data->player.walk_down == 1 && data->maze.map[y][x] != '1')
+	y = (data->player.y_pos - data->player.dirY * data->player.speed * 1.35);
+	x = (data->player.x_pos - data->player.dirX * data->player.speed * 1.35);
+	if (data->player.walk_down == 1
+		&& data->maze.map[y][x] != '1' && data->maze.map[y][x] != '2')
 	{
 		data->player.y_pos -= data->player.dirY * data->player.speed;
 		data->player.x_pos -= data->player.dirX * data->player.speed;
