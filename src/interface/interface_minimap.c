@@ -6,11 +6,24 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/18 11:07:39 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/19 09:56:03 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+static void	minimap_view_line(t_data *data)
+{
+	int	x;
+
+	x = 5;
+	while (x <= 30)
+	{
+		my_mlx_pixel_put(&data->vars, 900 + ((data->player.dirX) * x),
+			100 + ((data->player.dirY) * x), 0x00FFFF00);
+		x++;
+	}
+}
 
 static void	minimap_put_pixel(t_data *data, char map_pos, int x, int y)
 {
@@ -73,5 +86,6 @@ int	minimap(t_data *data)
 		}
 		y++;
 	}
+	minimap_view_line(data);
 	return (0);
 }
