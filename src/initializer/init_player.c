@@ -6,7 +6,7 @@
 /*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:51:02 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/17 15:10:11 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/01/26 11:09:24 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	init_player(t_data *data)
 	data->player.is_rotating = 0;
 	data->player.rotation_direction = LEFT;
 	data->player.is_using_door = 0;
+	data->player.startpos = 0;
 }
