@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhook_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:05:12 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/18 10:20:41 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:01:02 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	key_press(int keystroke, t_data *data)
 	if (keystroke == 53 || keystroke == 12)
 	{
 		printf("exit\n");
+		system("leaks cub3D");
 		exit(0);
 	}
 	if (keystroke == 2)

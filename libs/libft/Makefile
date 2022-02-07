@@ -48,6 +48,7 @@ SRC =		ft_atoi.c			\
 			ft_toupper.c		\
 			ft_utoa.c			\
 			get_next_line.c		\
+			get_next_line_2.c	\
 			get_next_line_utils.c\
 
 OBJECTS = ./*.o
