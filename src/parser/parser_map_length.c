@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_map_length.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:30:57 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 13:52:51 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:45:23 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static	int	parser_map_x_length_get(int fd, char *str)
 	int		highest_count;
 	int		count;
 
-	str = get_next_line(fd);
+	str = get_next_line_2(fd);
 	while (str != NULL && str[0] == '\n')
 	{
 		free(str);
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 	}
 	highest_count = ft_strlen(str) - 1;
 	while (str != NULL)
 	{
 		free(str);
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 		if (str == NULL)
 			break ;
 		count = ft_strlen(str) - 1;
@@ -54,7 +54,7 @@ int	parser_map_x_length(t_data *data, char *file)
 	index = 0;
 	while (index < data->read_length)
 	{
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 		free(str);
 		index++;
 	}
@@ -68,17 +68,17 @@ static int	parser_map_y_length_get(int fd, char *str)
 	int	count;
 
 	count = 0;
-	str = get_next_line(fd);
+	str = get_next_line_2(fd);
 	while (str != NULL && str[0] == '\n')
 	{
 		free(str);
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 	}
 	while (str != NULL)
 	{
 		free(str);
 		count++;
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 	}
 	free(str);
 	return (count);
@@ -101,7 +101,7 @@ int	parser_map_y_length(t_data *data, char *file)
 	index = 0;
 	while (index < data->read_length)
 	{
-		str = get_next_line(fd);
+		str = get_next_line_2(fd);
 		free(str);
 		index++;
 	}

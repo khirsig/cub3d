@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/26 10:49:34 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/07 15:42:30 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ static char	**parser_map_read_temp(t_data *data)
 
 	temp = malloc(sizeof(char *) * data->y_length + 1);
 	temp[data->y_length] = NULL;
-	str = get_next_line(data->file);
+	str = get_next_line_2(data->file);
 	while (str != NULL && str[0] == '\n')
 	{
 		free(str);
-		str = get_next_line(data->file);
+		str = get_next_line_2(data->file);
 	}
 	temp[0] = ft_strdup(str);
 	index = 1;
 	while (index < data->y_length)
 	{
-		temp[index] = get_next_line(data->file);
+		temp[index] = get_next_line_2(data->file);
 		if (temp[index][0] == '\n')
 		{
 			ft_putstr_error("Error\n");
