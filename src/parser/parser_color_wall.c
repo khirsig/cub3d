@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/17 12:42:45 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/07 15:13:39 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	parser_color_wall(t_data *data)
 	count = 0;
 	while (1)
 	{
-		str = get_next_line(data->file);
+		str = get_next_line_2(data->file);
 		if (str == NULL || count == 6)
 		{
 			if (count < 6)
@@ -105,6 +105,7 @@ void	parser_color_wall(t_data *data)
 			break ;
 		}
 		i = check_line(str, data);
+		free(str);
 		if (i == 0)
 			ft_putstr_error("Error\n");
 		else if (i == 1 || i == 2)

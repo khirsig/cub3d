@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 11:29:58 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/26 10:51:25 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:23:51 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+
+void	clean_memory(t_data *data)
+{
+	// free(data->maze.north_texture);
+	free(data->maze.south_texture);
+	free(data->maze.west_texture);
+	free(data->maze.east_texture);
+	
+}
 
 /*
 ** Error function
@@ -18,6 +28,7 @@
 void	ft_putstr_error(char *str)
 {
 	ft_putstr_fd(str, 2);
+	system("leaks cub3D");
 	exit(EXIT_FAILURE);
 }
 

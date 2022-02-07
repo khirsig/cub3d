@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/18 15:44:42 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/07 14:19:52 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int		parser_map_finalize_map(t_data *data, char **temp);
 int		parser_map_x_length(t_data *data, char *file);
 int		parser_map_y_length(t_data *data, char *file);
 int		parser_map_error(t_data *data, char **map);
+void	clean_memory(t_data *data);
 
 /*
 ** Minimap
