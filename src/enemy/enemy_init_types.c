@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:14:20 by khirsig           #+#    #+#             */
-/*   Updated: 2022/02/15 21:40:25 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:52:48 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->status = IDLE;
 	enemy->tex_height = 40;
 	enemy->tex_width = 32;
-	enemy->sprite.vDiv = 1.5;
-	enemy->sprite.uDiv = 1.5;
-	enemy->sprite.vMove = 400.0;
+	enemy->sprite.v_div = 1.5;
+	enemy->sprite.u_div = 1.5;
+	enemy->sprite.v_move = 400.0;
 	enemy->animstep = 0;
 	enemy->sprite.x = x + 0.50;
 	enemy->sprite.y = y + 0.50;
@@ -95,9 +95,9 @@ void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->idlestep = 5;
 	enemy->tex_height = 95;
 	enemy->tex_width = 96;
-	enemy->sprite.vDiv = 0.5;
-	enemy->sprite.uDiv = 0.5;
-	enemy->sprite.vMove = 100.0;
+	enemy->sprite.v_div = 0.5;
+	enemy->sprite.u_div = 0.5;
+	enemy->sprite.v_move = 100.0;
 	enemy->animstep = 0;
 	enemy->sprite.x = x + 0.50;
 	enemy->sprite.y = y + 0.50;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2022/02/08 12:22:05 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 22:02:40 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,10 @@ static void	parser_map_set_length(t_data *data, char *file)
 ** Skips every newline until the map starts.
 ** Then saves every line and returns them as **char.
 */
-static char	**parser_map_read_temp(t_data *data)
+static char	**parser_map_read_temp(t_data *data, int index)
 {
 	char	**temp;
 	char	*str;
-	int		index;
 
 	temp = malloc(sizeof(char *) * data->y_length + 1);
 	temp[data->y_length] = NULL;
@@ -52,7 +51,6 @@ static char	**parser_map_read_temp(t_data *data)
 	}
 	temp[0] = ft_strdup(str);
 	free(str);
-	index = 1;
 	while (index < data->y_length)
 	{
 		temp[index] = get_next_line_2(data->file);
@@ -75,7 +73,7 @@ void	parser_map(t_data *data, char *file)
 	int		i;
 
 	parser_map_set_length(data, file);
-	temp = parser_map_read_temp(data);
+	temp = parser_map_read_temp(data, 1);
 	if (parser_map_finalize_map(data, temp) == 1)
 	{
 		ft_putstr_error("Error\n");
