@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 14:11:55 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/03 14:32:53 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:55:02 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	draw_view(t_data *data)
 	while (i < 1000)
 	{
 		calculate_ray_vector(data, i);
-		calculate_step_and_sideDist(data);
-		perform_DDA(data);
+		calculate_step_and_sidedist(data);
+		perform_dda(data);
 		calc_ray_dist(data);
 		calc_x_pos(data);
 		draw_ver_line(i, data);

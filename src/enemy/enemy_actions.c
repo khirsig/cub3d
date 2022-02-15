@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_actions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 19:40:23 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:16:57 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:34:41 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	enemy_update_map(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		if (data->maze.map[data->enemy[i].last_y][data->enemy[i].last_x]
 			!= data->maze.map[(int)data->enemy[i].sprite.y]
@@ -69,7 +69,7 @@ void	enemy_actions(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		if (data->enemy[i].health <= 0.000)
 			data->enemy[i].status = DEAD;

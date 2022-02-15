@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_sprite_casting_sort.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:03:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:11:20 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:35:06 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_sprite_num(t_data *data, int needle)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		if (data->enemy[i].sprite.order == needle)
 			return (i);
@@ -39,9 +39,9 @@ static int	enemy_sprite_casting_sort_it(t_data *data, int i, int sort_actions)
 	int	temp;
 
 	count = get_sprite_num(data, i);
-	if (count + 1 < data->numEnemies)
+	if (count + 1 < data->num_enemies)
 		next_count = get_sprite_num(data, count + 1);
-	if (count + 1 < data->numEnemies
+	if (count + 1 < data->num_enemies
 		&& data->enemy[count].sprite.distance
 		< data->enemy[next_count].sprite.distance)
 	{
@@ -61,7 +61,7 @@ void	enemy_sprite_casting_sort_init(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		data->enemy[i].sprite.order = i;
 		data->enemy[i].sprite.distance = ((data->player.x_pos
@@ -90,7 +90,7 @@ void	enemy_sprite_casting_sort(t_data *data)
 	{
 		sort_actions = 0;
 		i = 0;
-		while (i < data->numEnemies)
+		while (i < data->num_enemies)
 		{
 			sort_actions = enemy_sprite_casting_sort_it(data, i, sort_actions);
 			i++;

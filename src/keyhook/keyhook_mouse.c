@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhook_mouse.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 08:35:22 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 13:32:10 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:35:25 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	attack_which_enemy(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		if (data->mouse_on_enemy[i] == 1)
 			return (i);
@@ -48,7 +48,7 @@ int	mouse_release(int button, int x, int y, t_data *data)
 */
 int	mouse_press(int button, int x, int y, t_data *data)
 {
-	int	numEnemy;
+	int	num_enemy;
 
 	(void)x;
 	(void)y;
@@ -62,11 +62,11 @@ int	mouse_press(int button, int x, int y, t_data *data)
 		data->mouse_rotation = 1;
 		data->player.rotation_direction = RIGHT;
 	}
-	numEnemy = attack_which_enemy(data);
+	num_enemy = attack_which_enemy(data);
 	if (button == 1 && data->mouse_variant == 0
-		&& numEnemy != -1 && data->enemy[numEnemy].sprite.distance < 20.0000)
+		&& num_enemy != -1 && data->enemy[num_enemy].sprite.distance < 20.0000)
 	{
-		data->enemy[numEnemy].health -= data->player.damage;
+		data->enemy[num_enemy].health -= data->player.damage;
 	}
 	return (0);
 }

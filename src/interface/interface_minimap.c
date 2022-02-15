@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   interface_minimap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 08:54:10 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/19 09:56:03 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:45:35 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static void	minimap_view_line(t_data *data)
 	x = 5;
 	while (x <= 30)
 	{
-		my_mlx_pixel_put(&data->vars, 900 + ((data->player.dirX) * x),
-			100 + ((data->player.dirY) * x), 0x00FFFF00);
+		my_mlx_pixel_put(&data->vars, 900 + ((data->player.dir_x) * x),
+			100 + ((data->player.dir_y) * x), 0x00FFFF00);
 		x++;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:22:02 by khirsig           #+#    #+#             */
-/*   Updated: 2021/12/18 10:06:58 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:39:11 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_enemy {
 	t_sprite	sprite;
 	int			**texture;
 	int			type;
-	int			texWidth;
-	int			texHeight;
+	int			tex_width;
+	int			tex_height;
 	int			status;
 	int			last_x;
 	int			last_y;

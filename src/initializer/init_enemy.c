@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_enemy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:21:13 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 12:30:43 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:34:31 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	enemy_setup(t_data *data)
 {
 	int	x;
 	int	y;
-	int	numEnemy;
+	int	num_enemy;
 
 	y = 0;
-	numEnemy = 0;
+	num_enemy = 0;
 	while (data->maze.map[y] != NULL)
 	{
 		x = 0;
@@ -56,13 +56,13 @@ void	enemy_setup(t_data *data)
 		{
 			if (data->maze.map[y][x] == 'R')
 			{
-				setup_rat(data, &data->enemy[numEnemy], x, y);
-				numEnemy++;
+				setup_rat(data, &data->enemy[num_enemy], x, y);
+				num_enemy++;
 			}
 			if (data->maze.map[y][x] == 'G')
 			{
-				setup_goblin(data, &data->enemy[numEnemy], x, y);
-				numEnemy++;
+				setup_goblin(data, &data->enemy[num_enemy], x, y);
+				num_enemy++;
 			}
 			x++;
 		}
@@ -76,8 +76,8 @@ void	enemy_setup(t_data *data)
 */
 void	init_enemy(t_data *data)
 {
-	data->numEnemies = count_enemies(data);
-	data->enemy = malloc(sizeof(t_enemy) * data->numEnemies);
-	data->mouse_on_enemy = malloc(sizeof(int *) * data->numEnemies);
+	data->num_enemies = count_enemies(data);
+	data->enemy = malloc(sizeof(t_enemy) * data->num_enemies);
+	data->mouse_on_enemy = malloc(sizeof(int *) * data->num_enemies);
 	enemy_setup(data);
 }

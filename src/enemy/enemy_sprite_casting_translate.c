@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_sprite_casting_translate.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 16:53:45 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:07:06 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:27:05 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	enemy_sprite_casting_cam_transform(t_data *data, int i)
 		= data->enemy[i].sprite.x - data->player.x_pos;
 	data->enemy[i].sprite.spriteY
 		= data->enemy[i].sprite.y - data->player.y_pos;
-	data->enemy[i].sprite.invDet = 1.0 / (data->player.planeX
-			* data->player.dirY - data->player.dirX * data->player.planeY);
+	data->enemy[i].sprite.invDet = 1.0 / (data->player.plane_x
+			* data->player.dir_y - data->player.dir_x * data->player.plane_y);
 	data->enemy[i].sprite.transformX = data->enemy[i].sprite.invDet
-		* (data->player.dirY * data->enemy[i].sprite.spriteX
-			- data->player.dirX * data->enemy[i].sprite.spriteY);
+		* (data->player.dir_y * data->enemy[i].sprite.spriteX
+			- data->player.dir_x * data->enemy[i].sprite.spriteY);
 	data->enemy[i].sprite.transformY = data->enemy[i].sprite.invDet
-		* (-data->player.planeY * data->enemy[i].sprite.spriteX
-			+ data->player.planeX * data->enemy[i].sprite.spriteY);
+		* (-data->player.plane_y * data->enemy[i].sprite.spriteX
+			+ data->player.plane_x * data->enemy[i].sprite.spriteY);
 	data->enemy[i].sprite.ScreenX = (int)((WIDTH / 2)
 			* (1 + data->enemy[i].sprite.transformX
 				/ data->enemy[i].sprite.transformY));
@@ -39,22 +39,22 @@ void	enemy_sprite_casting_cam_transform(t_data *data, int i)
 */
 int	enemy_sprite_casting_height(t_data *data, int i)
 {
-	int	vMoveScreen;
+	int	v_move_screen;
 
-	vMoveScreen = (int)(data->enemy[i].sprite.vMove
+	v_move_screen = (int)(data->enemy[i].sprite.vMove
 			/ data->enemy[i].sprite.transformY);
 	data->enemy[i].sprite.height = abs((int)(HEIGHT
 				/ (data->enemy[i].sprite.transformY)))
 		/ data->enemy[i].sprite.vDiv;
 	data->enemy[i].sprite.drawStartY = -data->enemy[i].sprite.height
-		/ 2 + HEIGHT / 2 + vMoveScreen;
+		/ 2 + HEIGHT / 2 + v_move_screen;
 	if (data->enemy[i].sprite.drawStartY < 0)
 		data->enemy[i].sprite.drawStartY = 0;
 	data->enemy[i].sprite.drawEndY = data->enemy[i].sprite.height
-		/ 2 + HEIGHT / 2 + vMoveScreen;
+		/ 2 + HEIGHT / 2 + v_move_screen;
 	if (data->enemy[i].sprite.drawEndY >= HEIGHT)
 		data->enemy[i].sprite.drawEndY = HEIGHT - 1;
-	return (vMoveScreen);
+	return (v_move_screen);
 }
 
 /*

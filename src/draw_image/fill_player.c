@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:46:35 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/26 11:11:42 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:26:20 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void	fill_player_helper_2(t_data *data, char c)
 {
 	if (c == 'N')
 	{
-		data->player.planeX = 0.66;
-		data->player.dirY = -1;
+		data->player.plane_x = 0.66;
+		data->player.dir_y = -1;
 	}
 	else if (c == 'S')
 	{
-		data->player.planeX = -0.66;
-		data->player.dirY = 1;
+		data->player.plane_x = -0.66;
+		data->player.dir_y = 1;
 	}
 	else if (c == 'E')
 	{
-		data->player.planeY = 0.66;
-		data->player.dirX = 1;
+		data->player.plane_y = 0.66;
+		data->player.dir_x = 1;
 	}
 	else
 	{
-		data->player.planeY = -0.66;
-		data->player.dirX = -1;
+		data->player.plane_y = -0.66;
+		data->player.dir_x = -1;
 	}
 }
 

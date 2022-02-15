@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 09:58:00 by khirsig           #+#    #+#             */
-/*   Updated: 2022/02/15 20:49:43 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/15 21:33:54 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_data {
 	int			x_length;
 	int			y_length;
 	int			read_length;
-	int			numEnemies;
+	int			num_enemies;
 	int			mouse_variant;
 	int			mouse_rotation;
 	int			mouse_width;
@@ -144,8 +144,8 @@ void	draw_view(t_data *data);
 void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 int		*load_texture(t_data *data, char *path);
 void	calculate_ray_vector(t_data *data, int i);
-void	calculate_step_and_sideDist(t_data *data);
-void	perform_DDA(t_data *data);
+void	calculate_step_and_sidedist(t_data *data);
+void	perform_dda(t_data *data);
 void	calc_ray_dist(t_data *data);
 void	calc_x_pos(t_data *data);
 void	draw_ver_line(int i, t_data *data);

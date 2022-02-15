@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:43:16 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/26 11:09:16 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:18:14 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_player {
 	t_weapon	weapon;
 	double		x_pos;
 	double		y_pos;
-	double		dirX;
-	double		dirY;
-	double		planeX;
-	double		planeY;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
 	float		speed;
 	int			walk_left;
 	int			walk_right;

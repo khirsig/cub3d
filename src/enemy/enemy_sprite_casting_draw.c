@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_sprite_casting_draw.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 10:34:32 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:13:28 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:41:07 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ static void	enemy_sprite_casting_draw_str(t_data *data, int i, int vMoveScreen)
 	{
 		d = (y - vMoveScreen) * 256 - HEIGHT * 128
 			+ data->enemy[i].sprite.height * 128;
-		data->enemy[i].sprite.texY = ((d * data->enemy[i].texHeight)
+		data->enemy[i].sprite.texY = ((d * data->enemy[i].tex_height)
 				/ data->enemy[i].sprite.height) / 256;
 		color = data->enemy[i].texture[(int)data->enemy[i].animstep]
-		[data->enemy[i].texWidth * data->enemy[i].sprite.texY
+		[data->enemy[i].tex_width * data->enemy[i].sprite.texY
 			+ data->enemy[i].sprite.texX];
 		if (color != 0xFFFFFF)
 		{
@@ -55,12 +55,12 @@ void	enemy_sprite_casting_draw(t_data *data, int i, int vMoveScreen)
 				* (data->enemy[i].sprite.stripe
 					- (-data->enemy[i].sprite.width / 2
 						+ data->enemy[i].sprite.ScreenX))
-				* data->enemy[i].texWidth / data->enemy[i].sprite.width) / 256;
+				* data->enemy[i].tex_width / data->enemy[i].sprite.width) / 256;
 		if (data->enemy[i].sprite.transformY > 0
 			&& data->enemy[i].sprite.stripe > 0
 			&& data->enemy[i].sprite.stripe < WIDTH
 			&& data->enemy[i].sprite.transformY
-			< data->ray.ZBuffer[data->enemy[i].sprite.stripe])
+			< data->ray.z_buffer[data->enemy[i].sprite.stripe])
 		{
 			enemy_sprite_casting_draw_str(data, i, vMoveScreen);
 		}

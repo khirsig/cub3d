@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_view_vert_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:54:51 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/01/18 11:12:32 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:25:41 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,37 +26,37 @@ static int	draw_wall_get_color(t_data *data, int texY)
 
 	if (data->ray.side == 0 && data->ray.hit == 1)
 	{
-		if (data->ray.rayDirX < 0)
+		if (data->ray.ray_dir_x < 0)
 			color = data->vars.texture[2]
-			[data->ray.texHeight * texY + data->ray.texX];
+			[data->ray.tex_height * texY + data->ray.tex_x];
 		else
 			color = data->vars.texture[3]
-			[data->ray.texHeight * texY + data->ray.texX];
+			[data->ray.tex_height * texY + data->ray.tex_x];
 	}
 	else if (data->ray.hit == 1)
 	{
-		if (data->ray.rayDirY < 0)
+		if (data->ray.ray_dir_y < 0)
 			color = data->vars.texture[0]
-			[data->ray.texHeight * texY + data->ray.texX];
+			[data->ray.tex_height * texY + data->ray.tex_x];
 		else
 			color = data->vars.texture[1]
-			[data->ray.texHeight * texY + data->ray.texX];
+			[data->ray.tex_height * texY + data->ray.tex_x];
 	}
 	if (data->ray.hit == 2)
 		color = data->maze.door_texture
-		[data->ray.texHeight * texY + data->ray.texX];
+		[data->ray.tex_height * texY + data->ray.tex_x];
 	return (color);
 }
 
 void	draw_wall(t_data *data, int i)
 {
-	int	texY;
+	int	tex_y;
 	int	color;
 
-	texY = (int)data->ray.texPos & (data->ray.texHeight - 1);
-	data->ray.texPos += data->ray.step;
-	color = draw_wall_get_color(data, texY);
-	my_mlx_pixel_put(&data->vars, i, data->ray.drawStart, color);
+	tex_y = (int)data->ray.tex_pos & (data->ray.tex_height - 1);
+	data->ray.tex_pos += data->ray.step;
+	color = draw_wall_get_color(data, tex_y);
+	my_mlx_pixel_put(&data->vars, i, data->ray.draw_start, color);
 }
 
 void	draw_ver_line(int i, t_data *data)
@@ -64,18 +64,18 @@ void	draw_ver_line(int i, t_data *data)
 	int	j;
 
 	j = 0;
-	data->ray.ZBuffer[i] = data->ray.perpWallDist;
-	while (j < data->ray.drawStart)
+	data->ray.z_buffer[i] = data->ray.perp_wall_dist;
+	while (j < data->ray.draw_start)
 	{
 		my_mlx_pixel_put(&data->vars, i, j, data->maze.ceiling_color);
 		j++;
 	}
-	while (data->ray.drawStart <= data->ray.drawEnd)
+	while (data->ray.draw_start <= data->ray.draw_end)
 	{
 		draw_wall(data, i);
-		data->ray.drawStart++;
+		data->ray.draw_start++;
 	}
-	j = data->ray.drawEnd + 1;
+	j = data->ray.draw_end + 1;
 	while (j < 1000)
 	{
 		my_mlx_pixel_put(&data->vars, i, j, data->maze.floor_color);

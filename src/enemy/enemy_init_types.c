@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_init_types.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 09:14:20 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/10 15:52:24 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:40:25 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	setup_rat(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->min_distance = 10.0000;
 	enemy->idlestep = 5;
 	enemy->status = IDLE;
-	enemy->texHeight = 40;
-	enemy->texWidth = 32;
+	enemy->tex_height = 40;
+	enemy->tex_width = 32;
 	enemy->sprite.vDiv = 1.5;
 	enemy->sprite.uDiv = 1.5;
 	enemy->sprite.vMove = 400.0;
@@ -93,8 +93,8 @@ void	setup_goblin(t_data *data, t_enemy *enemy, int x, int y)
 	enemy->min_distance = 22.0000;
 	enemy->status = IDLE;
 	enemy->idlestep = 5;
-	enemy->texHeight = 95;
-	enemy->texWidth = 96;
+	enemy->tex_height = 95;
+	enemy->tex_width = 96;
 	enemy->sprite.vDiv = 0.5;
 	enemy->sprite.uDiv = 0.5;
 	enemy->sprite.vMove = 100.0;

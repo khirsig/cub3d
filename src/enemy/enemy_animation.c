@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   enemy_animation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 11:20:19 by khirsig           #+#    #+#             */
-/*   Updated: 2022/01/11 14:15:29 by khirsig          ###   ########.fr       */
+/*   Updated: 2022/02/15 21:39:52 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static void	enemy_anim_cycle_death(t_data *data, int i)
 		[(int)data->enemy[i].sprite.x] = '0';
 		if (data->enemy[i].type == GOBLIN)
 		{
-			data->enemy[i].texHeight = 68;
-			data->enemy[i].texWidth = 115;
+			data->enemy[i].tex_height = 68;
+			data->enemy[i].tex_width = 115;
 		}
 		if (data->enemy[i].type == RAT)
 		{
-			data->enemy[i].texHeight = 53;
-			data->enemy[i].texWidth = 77;
+			data->enemy[i].tex_height = 53;
+			data->enemy[i].tex_width = 77;
 		}
 		data->enemy[i].animstep = 15.0000;
 	}
@@ -63,7 +63,7 @@ void	enemy_anim_cycle(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->numEnemies)
+	while (i < data->num_enemies)
 	{
 		if (data->enemy[i].animstep == 0.0000 && data->enemy[i].status == WALK)
 			data->enemy[i].animstep += 0.10;
