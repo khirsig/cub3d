@@ -6,7 +6,7 @@
 /*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:07:41 by jhagedor          #+#    #+#             */
-/*   Updated: 2022/02/15 19:38:07 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/15 20:49:32 by jhagedor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,10 @@ int	check_line(char *str, t_data *data)
 2) Checks for wrong input values at the end.
 */
 
-void	parser_color_wall(t_data *data)
+void	parser_color_wall(t_data *data, int i)
 {
 	int		lines;
 	int		count;
-	int		i;
 	char	*str;
 
 	lines = 0;
