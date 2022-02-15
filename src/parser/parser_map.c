@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhagedor <jhagedor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khirsig <khirsig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 10:57:05 by khirsig           #+#    #+#             */
-/*   Updated: 2022/02/07 15:42:30 by jhagedor         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:22:05 by khirsig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ static char	**parser_map_read_temp(t_data *data)
 		str = get_next_line_2(data->file);
 	}
 	temp[0] = ft_strdup(str);
+	free(str);
 	index = 1;
 	while (index < data->y_length)
 	{
@@ -71,6 +72,7 @@ static char	**parser_map_read_temp(t_data *data)
 void	parser_map(t_data *data, char *file)
 {
 	char	**temp;
+	int		i;
 
 	parser_map_set_length(data, file);
 	temp = parser_map_read_temp(data);
@@ -78,6 +80,12 @@ void	parser_map(t_data *data, char *file)
 	{
 		ft_putstr_error("Error\n");
 		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (temp[i] != NULL)
+	{
+		free(temp[i]);
+		i++;
 	}
 	free(temp);
 	if (parser_map_error(data, data->maze.map) == 1)
