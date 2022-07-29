@@ -20,11 +20,11 @@ Tested on MacOS
 
 Copy into a Terminal of your choice while being in the directory:
 
-```git clone git@github.com:khirsig/cub3d.git && cd /cub3d```
-```make```
-```./cub3D maps/haring.cub```
+```bash git clone git@github.com:khirsig/cub3d.git && cd /cub3d```
+```bash make```
+```bash ./cub3D maps/haring.cub```
 
-### How to create your own maps
+## How to create your own maps
 
 You can create your own map files if you want, since the map is still 2D, they are pretty easy to create.
 However, you need to follow some rules:
