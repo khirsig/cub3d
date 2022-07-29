@@ -1,7 +1,7 @@
 # cub3d
 
-Cub3D was a project of the 42 coding school in Heilbronn, that we needed to do for the core curriculum.
-The task was to recreate a Raycaster which was used for Wolfenstein 3D.
+Cub3D was a project of the 42 coding school in Heilbronn, that we needed to do for the core curriculum.  
+The task was to recreate a Raycaster which was used for Wolfenstein 3D.  
 This raycaster was done by [Jonas Hagedorn](https://github.com/Jonabcs) and [Kevin Hirsig](https://github.com/khirsig).
 
 ![cub3Dgif](https://user-images.githubusercontent.com/78398628/181726830-bf59cabf-5ffd-4dac-88b7-98b4c1d95f41.gif)
