@@ -14,9 +14,7 @@ Because following the ray with maximum precision would be infinite, we used DDA 
 With this we can reduce the amount of calculating needed by a lot.
 Once the walls are drawn we draw the 2D sprites of the enemies to the player and sort them from furthest away to closest to camera.  
 
-## How to Run
-
-Tested on MacOS
+## How to Run on MacOS
 
 Copy into a Terminal of your choice while being in the directory:
 
