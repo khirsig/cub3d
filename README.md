@@ -36,6 +36,7 @@ However, you need to follow some rules:
 * C and F need to be followed by the rgb colors you want for ceiling and floor seperated by commas
 
 | Identifier | Description |
+| :---         | :---         |
 | ```0``` | Floor |
 | ```1``` | Wall |
 | ```2``` | Door |
