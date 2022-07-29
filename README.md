@@ -20,9 +20,15 @@ Tested on MacOS
 
 Copy into a Terminal of your choice while being in the directory:
 
-```bash git clone git@github.com:khirsig/cub3d.git && cd /cub3d```
-```bash make```
-```bash ./cub3D maps/haring.cub```
+```bash
+git clone git@github.com:khirsig/cub3d.git && cd /cub3d
+```
+```bash
+make
+```
+```bash
+./cub3D maps/haring.cub
+```
 
 ## How to create your own maps
 
